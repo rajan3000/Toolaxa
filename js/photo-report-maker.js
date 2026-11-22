@@ -17,7 +17,6 @@ const $ = id => document.getElementById(id);
 
 const imageInput = $("imageInput");
 const addEntriesBtn = $("addEntriesBtn");
-const entriesList = $("entriesList");
 const previewPages = $("previewPages");
 const selectedFilesDisplay = $("selectedFiles");
 
@@ -190,133 +189,6 @@ $("zoomResetBtn").addEventListener("click", () => {
 updateZoomLabel();
 
 /* =========================
-   ATTACHED IMAGE LIST
-========================= */
-
-function renderEntriesList() {
-  if (!reportItems.length) {
-    showAllAttachedImages = false;
-    entriesList.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">🖼️</div>
-        <strong>No images added yet</strong>
-        <span>Use the form on the left to add images.</span>
-      </div>`;
-    return;
-  }
-
-  const visibleItems = showAllAttachedImages
-    ? reportItems
-    : reportItems.slice(0, ATTACHED_IMAGES_LIMIT);
-
-  entriesList.innerHTML = visibleItems.map((item, index) => `
-    <div class="entry-row" data-index="${index}">
-      <div class="entry-info">
-        <div class="entry-title">
-          ${index + 1}. ${escapeHTML(item.title || "Untitled Photo")}
-        </div>
-        <div class="entry-remark">
-          ${escapeHTML(item.remark || "No remark")}
-        </div>
-      </div>
-
-      <img src="${item.image}" alt="${escapeHTML(item.title || "Photo")}">
-
-      <div class="entry-actions">
-        <button type="button" class="btn btn-primary" data-action="edit" data-index="${index}">Edit</button>
-        <button type="button" class="btn btn-warning" data-action="replace" data-index="${index}">Replace</button>
-        <button type="button" class="btn btn-danger" data-action="delete" data-index="${index}">Delete</button>
-        <input type="file" class="replace-file" data-index="${index}" accept="image/*" hidden>
-      </div>
-    </div>
-  `).join("");
-
-  // Show More / Show Less button
-  if (reportItems.length > ATTACHED_IMAGES_LIMIT) {
-    const moreButton = document.createElement("button");
-
-    moreButton.type = "button";
-    moreButton.className = "entries-more-btn";
-
-    moreButton.textContent = showAllAttachedImages
-      ? "Show Less Images ▲"
-      : `Show More Images (${reportItems.length - ATTACHED_IMAGES_LIMIT} more) ▼`;
-
-    moreButton.addEventListener("click", () => {
-      showAllAttachedImages = !showAllAttachedImages;
-      renderEntriesList();
-
-      if (!showAllAttachedImages) {
-        entriesList.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    });
-
-    entriesList.appendChild(moreButton);
-  }
-}
-
-entriesList.addEventListener("click", e => {
-  const b = e.target.closest("button[data-action]");
-
-  if (!b) return;
-
-  const i = Number(b.dataset.index);
-
-  if (!reportItems[i]) return;
-
-  if (b.dataset.action === "edit") {
-    const item = reportItems[i];
-
-    const title = prompt("Edit photo title:", item.title);
-    if (title === null) return;
-
-    const remark = prompt("Edit photo remark:", item.remark || "");
-    if (remark === null) return;
-
-    item.title = title.trim();
-    item.remark = remark.trim();
-
-    renderAll();
-
-  } else if (b.dataset.action === "delete") {
-    if (confirm(`Delete photo ${i + 1} (${reportItems[i].title})?`)) {
-      reportItems.splice(i, 1);
-      renderAll();
-    }
-
-  } else if (b.dataset.action === "replace") {
-    b.closest(".entry-actions").querySelector(".replace-file").click();
-  }
-});
-
-entriesList.addEventListener("change", async e => {
-  const input = e.target.closest(".replace-file");
-
-  if (!input) return;
-
-  const file = input.files?.[0];
-  const i = Number(input.dataset.index);
-
-  if (!file || !reportItems[i]) return;
-
-  try {
-    reportItems[i].image = await readImageFile(file);
-    reportItems[i].filename = file.name;
-
-    renderAll();
-
-  } catch (err) {
-    alert("Photo replacement failed: " + err.message);
-
-  } finally {
-    input.value = "";
-  }
-});
-
-/* =========================
    CREATE A4 REPORT PAGE
 ========================= */
 
@@ -355,39 +227,77 @@ function createReportPage(items, pageIndex, totalPages, settings, exportMode = f
       style="grid-template-columns:repeat(${settings.cols},minmax(0,1fr));grid-template-rows:repeat(${settings.rows},minmax(0,1fr));">
 
       ${items.map(item => `
-        <div class="report-item">
+            <div class="report-item" data-photo-id="${item.id}">
 
-          <div class="report-image-wrap">
-            <img
-              class="report-image ${settings.imageBorder ? "" : "no-image-border"}"
-              src="${item.image}"
-              alt="${escapeHTML(item.title || "Photo")}">
-          </div>
+              <div class="report-image-wrap">
 
-          ${item.title
-            ? `<div class="report-item-title">${escapeHTML(item.title)}</div>`
-            : ""}
+                <img
+                  class="report-image ${settings.imageBorder ? "" : "no-image-border"}"
+                  src="${item.image}"
+                  alt="${escapeHTML(item.title || "Photo")}"
+                >
 
-          ${item.remark
-            ? `<div class="report-remark"><span class="report-remark-label">Remark:</span> ${escapeHTML(item.remark)}</div>`
-            : ""}
+                ${!exportMode ? `
+                  <div class="photo-action-overlay">
+                    <div class="photo-action-buttons">
 
-        </div>
-      `).join("")}
+                      <button type="button"
+                        class="photo-action-btn edit-photo-btn"
+                        data-action="edit"
+                        data-id="${item.id}">
+                        ✏️ Edit Details
+                      </button>
 
-    </div>
+                      <button type="button"
+                        class="photo-action-btn replace-photo-btn"
+                        data-action="replace"
+                        data-id="${item.id}">
+                        🔄 Replace
+                      </button>
 
-    ${pageNumber}
-    ${footer}
-  `;
+                      <button type="button"
+                        class="photo-action-btn delete-photo-btn"
+                        data-action="delete"
+                        data-id="${item.id}">
+                        🗑 Delete
+                      </button>
 
-  if (exportMode) {
-    page.style.margin = "0";
-    page.style.boxShadow = "none";
-  }
+                    </div>
 
-  return page;
-}
+                    <input type="file"
+                      class="overlay-replace-file"
+                      data-id="${item.id}"
+                      accept="image/*"
+                      hidden>
+                  </div>
+                ` : ""}
+
+              </div>
+
+              ${item.title
+                ? `<div class="report-item-title">${escapeHTML(item.title)}</div>`
+                : ""}
+
+              ${item.remark
+                ? `<div class="report-remark"><span class="report-remark-label">Remark:</span> ${escapeHTML(item.remark)}</div>`
+                : ""}
+
+            </div>
+          `).join("")}
+
+              </div>
+
+              ${pageNumber}
+              ${footer}
+            `;
+
+            if (exportMode) {
+              page.style.margin = "0";
+              page.style.boxShadow = "none";
+            }
+
+            return page;
+          }
 
 /* =========================
    RENDER PREVIEW
@@ -426,28 +336,36 @@ function renderPreview() {
 }
 
 function scalePreviewPages() {
-  const area = document.querySelector(".preview-area");
-  const pages = document.querySelectorAll(".report-page");
+    const area = $("previewPages");
+    if (!area) return;
 
-  if (!area || !pages.length) return;
+    const pages = area.querySelectorAll(".report-page");
+    if (!pages.length) return;
 
-  const availableWidth = Math.max(200, area.clientWidth - 24);
-  const pageWidth = 794;
+    const container = area.closest(".preview-area") || area;
+    const availableWidth = Math.max(100, container.clientWidth - 16);
+    const pageWidth = 794; // A4 preview base width in pixels
 
-  const fitScale = Math.min(1, availableWidth / pageWidth);
-  const scale = fitScale * previewZoom;
+    const isMobile = window.innerWidth <= 768;
 
-  pages.forEach(page => {
-    page.style.transform = `scale(${scale})`;
-    page.style.transformOrigin = "top center";
+    // Mobile: fit page within available screen width.
+    // Desktop: keep natural scale, with zoom support.
+    const fitScale = Math.min(1, availableWidth / pageWidth);
+    const scale = isMobile
+        ? fitScale * previewZoom
+        : Math.min(1, fitScale) * previewZoom;
 
-    page.style.marginBottom =
-      `${-(297 * (1 - scale))}mm`;
-  });
+    pages.forEach(page => {
+        page.style.transform = `scale(${scale})`;
+        page.style.transformOrigin = "top center";
+
+        // Adjust space occupied by scaled page
+        const originalHeight = 1123; // A4 base height in pixels
+        page.style.marginBottom = `${originalHeight * (scale - 1)}px`;
+    });
 }
 
 function renderAll() {
-  renderEntriesList();
   renderPreview();
 }
 
@@ -1507,7 +1425,103 @@ $("downloadDocBtn").addEventListener("click", async () => {
   }
 });
 
+/* =========================================
+   A4 PREVIEW PHOTO ACTIONS - OVERLAY
+========================================= */
 
+previewPages.addEventListener("click", async function (e) {
+  const actionButton = e.target.closest("[data-action]");
+  const photoWrap = e.target.closest(".report-image-wrap");
+  const photoItem = photoWrap ? photoWrap.closest(".report-item") : null;
+
+  // Action button click
+  if (actionButton) {
+    e.stopPropagation();
+
+    const id = actionButton.dataset.id;
+    const itemIndex = reportItems.findIndex(item => String(item.id) === String(id));
+
+    if (itemIndex === -1) return;
+
+    const item = reportItems[itemIndex];
+    const action = actionButton.dataset.action;
+
+    // EDIT TITLE & REMARK
+    if (action === "edit") {
+      const newTitle = prompt("Edit photo title:", item.title || "");
+      if (newTitle === null) return;
+
+      const newRemark = prompt("Edit photo remark:", item.remark || "");
+      if (newRemark === null) return;
+
+      item.title = newTitle.trim();
+      item.remark = newRemark.trim();
+
+      renderAll();
+      return;
+    }
+
+    // DELETE PHOTO
+    if (action === "delete") {
+      if (confirm(`Delete photo ${itemIndex + 1}?`)) {
+        reportItems.splice(itemIndex, 1);
+        renderAll();
+      }
+      return;
+    }
+
+    // REPLACE PHOTO
+    if (action === "replace") {
+      const wrapper = actionButton.closest(".photo-action-overlay");
+      const fileInput = wrapper.querySelector(".overlay-replace-file");
+
+      fileInput.click();
+      return;
+    }
+  }
+
+  // Tap photo to show/hide overlay
+  if (photoItem) {
+    const alreadyVisible = photoItem.classList.contains("photo-actions-visible");
+
+    // Hide overlays on all photos first
+    previewPages.querySelectorAll(".photo-actions-visible")
+      .forEach(el => el.classList.remove("photo-actions-visible"));
+
+    // Toggle the tapped photo
+    if (!alreadyVisible) {
+      photoItem.classList.add("photo-actions-visible");
+    }
+  }
+});
+
+// REPLACEMENT FILE SELECTED
+previewPages.addEventListener("change", async function (e) {
+  const fileInput = e.target.closest(".overlay-replace-file");
+  if (!fileInput) return;
+
+  const file = fileInput.files?.[0];
+  const id = fileInput.dataset.id;
+
+  if (!file || !file.type.startsWith("image/")) return;
+
+  const index = reportItems.findIndex(item => String(item.id) === String(id));
+  if (index === -1) return;
+
+  try {
+    const imageData = await readImageFile(file);
+
+    reportItems[index].image = imageData;
+    reportItems[index].filename = file.name;
+
+    renderAll();
+
+  } catch (error) {
+    alert("Photo replacement failed: " + error.message);
+  } finally {
+    fileInput.value = "";
+  }
+});
 
 /* =========================
    INITIALIZE

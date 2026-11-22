@@ -445,6 +445,7 @@ button {
     color: #94a3b8;
     border: 1px dashed #cbd5e1;
     border-radius: 12px;
+    margin: auto;
 }
 
 .empty-state .empty-icon {
@@ -597,7 +598,7 @@ button {
     border-radius: 1mm;
     overflow: hidden;
     min-width: 0;
-    min-height: 0;
+    min-height: 334;
     display: flex;
     flex-direction: column;
     break-inside: avoid;
@@ -1035,3 +1036,417 @@ button {
   }
 }
 
+/* =========================================
+   A4 PREVIEW - PHOTO ACTION OVERLAY
+========================================= */
+
+/* Preview panel now sits beside Report Details */
+.top-grid .preview-panel {
+  margin-top: 0 !important;
+  min-width: 0;
+}
+
+.report-item {
+  position: relative;
+}
+
+.report-image-wrap {
+  position: relative;
+}
+
+/* Hidden until photo is selected */
+.photo-action-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: rgba(15, 23, 42, 0.72);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+/* Show when photo is clicked */
+.report-item.photo-actions-visible .photo-action-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.photo-action-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: min(170px, 100%);
+}
+
+.photo-action-btn {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: #334155;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.photo-action-btn:hover {
+  filter: brightness(1.12);
+}
+
+.edit-photo-btn {
+  background: #2563eb;
+}
+
+.replace-photo-btn {
+  background: #d97706;
+}
+
+.delete-photo-btn {
+  background: #dc2626;
+}
+
+/* No action overlay in exported pages */
+@media print {
+  .photo-action-overlay {
+    display: none !important;
+  }
+}
+
+/* A4 Preview Scroll Area */
+.preview-area {
+    width: 100%;
+    height: 650px;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 15px;
+    background: #e9edf3;
+    border-radius: 10px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.preview-area::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+.preview-area::-webkit-scrollbar-thumb {
+    background: #aab4c2;
+    border-radius: 10px;
+}
+
+.preview-area::-webkit-scrollbar-track {
+    background: #f1f3f5;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .preview-area {
+        height: 65vh;
+        min-height: 400px;
+        padding: 8px;
+    }
+}
+
+/* =====================================
+   RIGHT PANEL - A4 REPORT PREVIEW
+===================================== */
+
+.top-grid .preview-area {
+    width: 100%;
+    height: 1260px;
+    min-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+    background: #e9edf3;
+    border-radius: 10px;
+    scroll-behavior: smooth;
+}
+
+/* A4 page positioning */
+.top-grid .preview-area .report-page {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Preview scrollbar */
+.top-grid .preview-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.top-grid .preview-area::-webkit-scrollbar-thumb {
+    background: #aab4c2;
+    border-radius: 10px;
+}
+
+.top-grid .preview-area::-webkit-scrollbar-track {
+    background: #f1f3f5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .top-grid .preview-area {
+        height: 70vh;
+        min-height: 420px;
+        padding: 8px;
+    }
+}
+
+/* ==========================================
+   A4 PREVIEW AREA - RESPONSIVE / MOBILE
+========================================== */
+
+/*.preview-area {
+    width: 100%;
+    height: 650px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px;
+    background: #e9edf3;
+    border-radius: 12px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}*/
+
+/* Preview pages container */
+.preview-pages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    box-sizing: border-box;
+}
+
+/* A4 Page */
+.preview-area .report-page {
+    flex-shrink: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transform-origin: top center;
+    box-sizing: border-box;
+}
+
+/* Scrollbar */
+.preview-area::-webkit-scrollbar {
+    width: 7px;
+}
+
+.preview-area::-webkit-scrollbar-thumb {
+    background: #aab4c2;
+    border-radius: 20px;
+}
+
+.preview-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .preview-area {
+        height: 600px;
+        padding: 10px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .preview-area {
+        height: 70vh;
+        min-height: 320px;
+        max-height: 550px;
+        padding: 6px;
+        border-radius: 8px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .preview-pages {
+        width: 100%;
+        gap: 12px;
+        padding: 0;
+    }
+
+    .preview-area .report-page {
+        max-width: 100%;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .preview-area {
+        height: 65vh;
+        min-height: 380px;
+        padding: 4px;
+    }
+}
+
+/* Prevent horizontal overflow on mobile */
+@media (max-width: 768px) {
+    .top-grid,
+    .panel,
+    .panel-body {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .preview-area img {
+        max-width: 100%;
+    }
+}
+
+/* ==========================
+   MOBILE PREVIEW - 100% ZOOM
+========================== */
+
+.preview-area {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+.preview-pages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+}
+
+/* A4 page - keep its original size */
+.preview-area .report-page {
+    flex-shrink: 0;
+    transform-origin: top center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .preview-area {
+        height: 70vh;
+        min-height: 400px;
+        max-height: 750px;
+        padding: 8px;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    .preview-pages {
+        align-items: center;
+        width: 100%;
+    }
+
+    .preview-area .report-page {
+        /* 100% zoom - no automatic shrinking */
+        transform: scale(1) !important;
+        transform-origin: top center;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .preview-area {
+        height: 65vh;
+        min-height: 360px;
+        padding: 5px;
+    }
+}
+
+/* ========================================
+   PROFESSIONAL RESPONSIVE A4 PREVIEW
+======================================== */
+
+.preview-pages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.preview-area .report-page {
+    flex-shrink: 0;
+    transform-origin: top center;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .preview-area {
+        height: 600px;
+        padding: 10px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .preview-area {
+        width: 100%;
+        height: 80vh;
+        min-height: 500px;
+        max-height: 900px;
+        padding: 6px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    .preview-pages {
+        width: 100%;
+        align-items: center;
+        gap: 16px;
+        padding: 0;
+    }
+
+    .preview-area .report-page {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .preview-area {
+        height: 65vh;
+        min-height: 350px;
+        padding: 4px;
+        border-radius: 8px;
+    }
+
+    .preview-pages {
+        gap: 12px;
+    }
+}
+
+/* Prevent surrounding panels from breaking */
+.top-grid,
+.panel,
+.panel-body {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.preview-area img {
+    max-width: 100%;
+}
