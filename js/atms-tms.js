@@ -1,4 +1,3 @@
-
 /* =========================================================
    ATMS & TMS MAINTENANCE ERP
    LocalStorage based single-browser application
@@ -28,14 +27,69 @@ function loadDB() {
 }
 
 function saveDB() {
-  localStorage.setItem(DB_KEY, JSON.stringify(db));
-  renderAll();
+  try {
+    localStorage.setItem(DB_KEY, JSON.stringify(db));
+    renderAll();
+    return true;
+  } catch (error) {
+    alert("Unable to save data. Browser storage may be full. Please download a backup and remove large attachments or use a smaller PDF.");
+    return false;
+  }
 }
 
 function uid(prefix) {
   return prefix + "-" + Date.now().toString(36).toUpperCase()
     + "-" + Math.random().toString(36).substring(2, 6).toUpperCase();
 }
+
+/* =========================================================
+   SHORT AUTO ID GENERATOR
+   AID-001 | TID-001 | VID-001 | PID-001 | SID-001 | AMC-001
+========================================================= */
+
+function generateShortId(prefix, records) {
+  let maxNumber = 0;
+
+  (records || []).forEach(record => {
+    const id = String(record.id || "");
+    const start = prefix + "-";
+
+    if (id.toUpperCase().startsWith(start)) {
+      const numberPart = id.slice(start.length);
+      if (/^\d+$/.test(numberPart)) {
+        maxNumber = Math.max(maxNumber, Number(numberPart));
+      }
+    }
+  });
+
+  return `${prefix}-${String(maxNumber + 1).padStart(3, "0")}`;
+}
+
+function generateAssetId() {
+  return generateShortId("AID", db.equipment);
+}
+
+function generateTicketId() {
+  return generateShortId("TID", db.faults);
+}
+
+function generateVendorId() {
+  return generateShortId("VID", db.vendors);
+}
+
+function generatePurchaseId() {
+  return generateShortId("PID", db.purchases);
+}
+
+function generateStockId() {
+  return generateShortId("SID", db.inventory);
+}
+
+function generateAmcId() {
+  return generateShortId("AMC", db.amc);
+}
+
+/* COMMON HELPERS */
 
 function esc(value) {
   return String(value ?? "").replace(/[&<>"']/g, c => ({
@@ -230,7 +284,7 @@ function openEquipmentModal(item = null) {
   showModal(item ? "Edit Equipment" : "Register Equipment", `
     <form id="recordForm">
       <div class="form-grid">
-        ${field("Asset ID","id",item?.id || uid("AST"),"text",true)}
+        ${field("Asset ID","id",item?.id || generateAssetId(),"text",true)}
         ${field("Equipment Name","name",item?.name,"text",true)}
         ${field("Category","category",item?.category,"text",true)}
         ${selectField("Status","status",["Working","Faulty","Under Maintenance","Standby","Retired"],item?.status || "Working")}
@@ -310,7 +364,7 @@ function openFaultModal(item = null) {
   showModal(item ? "Edit Fault Ticket" : "Report New Fault", `
     <form id="recordForm">
       <div class="form-grid">
-        ${field("Ticket ID","id",item?.id || uid("FLT"),"text",true)}
+        ${field("Ticket ID","id",item?.id || generateTicketId(),"text",true)}
         ${field("Complaint Date","date",item?.date || new Date().toISOString().slice(0,10),"date",true)}
         ${field("Equipment Name","equipment",item?.equipment,"text",true)}
         ${field("Plaza / Location","location",item?.location,"text",true)}
@@ -366,6 +420,8 @@ function cycleFaultStatus(id) {
   saveDB();
 }
 
+/* VENDORS */
+
 function renderVendors() {
   const search = (document.getElementById("vendorSearch")?.value || "").toLowerCase();
   const list = db.vendors.filter(v =>
@@ -392,7 +448,7 @@ function openVendorModal(item = null) {
   showModal(item ? "Edit Vendor" : "Add Vendor", `
     <form id="recordForm">
       <div class="form-grid">
-        ${field("Vendor ID","id",item?.id || uid("VEN"),"text",true)}
+        ${field("Vendor ID","id",item?.id || generateVendorId(),"text",true)}
         ${field("Vendor Company Name","name",item?.name,"text",true)}
         ${field("Contact Person","contact",item?.contact,"text")}
         ${field("Phone","phone",item?.phone,"tel")}
@@ -433,6 +489,9 @@ function renderPurchases() {
 
   document.getElementById("purchaseTable").innerHTML = list.length ? list.map(p => {
     const pending = Math.max(0, Number(p.qty || 0) - Number(p.received || 0));
+    const documentCell = p.document?.data
+      ? `<button class="action-btn" onclick="showPurchaseDocument('${p.id}')">Show PO</button>`
+      : `<span class="muted">No Document</span>`;
     return `
     <tr>
       <td><b>${esc(p.po)}</b><br><small>${esc(p.notes || "")}</small></td>
@@ -443,6 +502,7 @@ function renderPurchases() {
       <td>${esc(p.received)}</td>
       <td>${pending}</td>
       <td>${money(p.amount)}</td>
+      <td>${documentCell}</td>
       <td>${badge(p.status)}</td>
       <td class="actions">
         <button class="action-btn" onclick="receivePurchase('${p.id}')">Receive</button>
@@ -450,15 +510,16 @@ function renderPurchases() {
         <button class="action-btn delete" onclick="deleteRecord('purchases','${p.id}')">Delete</button>
       </td>
     </tr>`;
-  }).join("") : emptyRow(10);
+  }).join("") : emptyRow(11);
 }
 
 function openPurchaseModal(item = null) {
   editing = item ? {type:"purchases",id:item.id} : null;
+  const existingDocument = item?.document;
   showModal(item ? "Edit Purchase Order" : "Create Purchase Order", `
     <form id="recordForm">
       <div class="form-grid">
-        ${field("Record ID","id",item?.id || uid("POREC"),"text",true)}
+        ${field("Record ID","id",item?.id || generatePurchaseId(),"text",true)}
         ${field("PO Number","po",item?.po || uid("PO"),"text",true)}
         ${field("PO Date","date",item?.date || new Date().toISOString().slice(0,10),"date",true)}
         ${field("Vendor Name","vendor",item?.vendor,"text",true)}
@@ -472,25 +533,107 @@ function openPurchaseModal(item = null) {
         ${field("PO Document Reference / Filename","poDoc",item?.poDoc,"text")}
         ${field("Notes","notes",item?.notes,"text")}
       </div>
+
+      <div class="form-group full pdf-upload-group">
+        <label for="poPdf">Upload Purchase Order PDF (Maximum 2 MB)</label>
+        <input id="poPdf" name="poPdf" type="file" accept="application/pdf,.pdf">
+        <small class="muted">Only PDF files are allowed. The document is saved in this browser.</small>
+        ${existingDocument?.name ? `
+          <div class="existing-pdf">
+            <span>Current document: <b>${esc(existingDocument.name)}</b></span>
+            <label class="remove-pdf-label">
+              <input type="checkbox" id="removePurchaseDocument" name="removePurchaseDocument">
+              Remove current document
+            </label>
+          </div>` : `<div class="muted existing-pdf">No PDF attached currently.</div>`}
+      </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-light" onclick="closeModal()">Cancel</button>
         <button class="btn btn-primary">Save Purchase</button>
       </div>
     </form>
   `);
-  document.getElementById("recordForm").onsubmit = e => {
+
+  document.getElementById("recordForm").onsubmit = async e => {
     e.preventDefault();
-    const d = formData(e.target);
+    const form = e.target;
+    const d = formData(form);
+    const fileInput = form.querySelector("#poPdf");
+    const file = fileInput?.files?.[0] || null;
+    const removeDocument = !!form.querySelector("#removePurchaseDocument")?.checked;
+
+    if (file) {
+      const isPdf = file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
+      if (!isPdf) return toast("Please select a valid PDF file");
+      if (file.size > 2 * 1024 * 1024) return toast("PDF file must be 2 MB or smaller");
+      try {
+        d.document = {
+          name: file.name,
+          type: "application/pdf",
+          size: file.size,
+          data: await readFileAsDataURL(file)
+        };
+      } catch (error) {
+        return toast("Unable to read PDF file. Please try again.");
+      }
+    } else if (removeDocument) {
+      d.document = null;
+    } else if (item?.document) {
+      d.document = item.document;
+    } else {
+      d.document = null;
+    }
+
+    delete d.poPdf;
+    delete d.removePurchaseDocument;
+
     d.qty = Number(d.qty || 0);
     d.received = Number(d.received || 0);
     d.amount = Number(d.amount || 0);
     d.pending = Math.max(0, d.qty - d.received);
     if (d.received >= d.qty && d.qty > 0) d.status = "Received";
     else if (d.received > 0 && d.received < d.qty) d.status = "Partially Received";
+
+    const previousItem = item ? {...item} : null;
     if (item) Object.assign(item,d);
     else db.purchases.push(d);
-    closeModal(); saveDB(); toast("Purchase order saved");
+
+    const saved = saveDB();
+    if (!saved) {
+      if (item) Object.assign(item, previousItem);
+      else db.purchases.pop();
+      return;
+    }
+    closeModal();
+    toast("Purchase order saved");
   };
+}
+
+function readFileAsDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(reader.error || new Error("File read failed"));
+    reader.readAsDataURL(file);
+  });
+}
+
+function showPurchaseDocument(id) {
+  const purchase = db.purchases.find(p => p.id === id);
+  const doc = purchase?.document;
+  if (!doc?.data || !String(doc.data).startsWith("data:application/pdf;base64,")) {
+    return toast("PDF document is not available");
+  }
+
+  const safeName = esc(doc.name || "Purchase-Order.pdf");
+  showModal("Purchase Order Document", `
+    <div class="pdf-preview-toolbar">
+      <div><b>${safeName}</b><br><small class="muted">PO: ${esc(purchase.po || "-")}</small></div>
+      <a class="btn btn-primary" href="${doc.data}" download="${safeName}">⬇ Download PDF</a>
+    </div>
+    <iframe class="pdf-preview-frame" src="${doc.data}" title="Purchase Order PDF Preview"></iframe>
+  `);
 }
 
 function editPurchase(id) {
@@ -506,18 +649,26 @@ function receivePurchase(id) {
   if (!qty || qty <= 0 || qty > remaining) return toast("Invalid quantity");
   p.received = Number(p.received || 0) + qty;
   p.status = p.received >= p.qty ? "Received" : "Partially Received";
+
   // Automatically update inventory for this material
   let stock = db.inventory.find(x => x.name.toLowerCase() === p.item.toLowerCase());
   if (!stock) {
     stock = {
-      id: uid("STK"), name:p.item, category:"Purchased",
-      location:"ATMS", received:0, issued:0, unit:p.unit || "Nos", min:0
+      id: generateStockId(),
+      name:p.item,
+      category:"Purchased",
+      location:"ATMS",
+      received:0,
+      issued:0,
+      unit:p.unit || "Nos",
+      min:0
     };
     db.inventory.push(stock);
   }
   stock.received = Number(stock.received || 0) + qty;
   stock.location = p.location || stock.location;
-  saveDB(); toast("Material received and inventory updated");
+  saveDB();
+  toast("Material received and inventory updated");
 }
 
 /* INVENTORY */
@@ -556,7 +707,7 @@ function openStockModal(item = null) {
   showModal(item ? "Edit Stock Item" : "Add Stock Item", `
     <form id="recordForm">
       <div class="form-grid">
-        ${field("Stock ID","id",item?.id || uid("STK"),"text",true)}
+        ${field("Stock ID","id",item?.id || generateStockId(),"text",true)}
         ${field("Material Name","name",item?.name,"text",true)}
         ${field("Category","category",item?.category,"text")}
         ${selectField("Plaza / Location","location",["Varwade","Sawaleshwar","ATMS"],item?.location || "ATMS")}
@@ -635,7 +786,7 @@ function openAmcModal(item = null) {
   showModal(item ? "Edit AMC / Warranty" : "Add AMC / Warranty", `
     <form id="recordForm">
       <div class="form-grid">
-        ${field("Record ID","id",item?.id || uid("AMC"),"text",true)}
+        ${field("Record ID","id",item?.id || generateAmcId(),"text",true)}
         ${field("Contract / AMC Number","contract",item?.contract,"text",true)}
         ${field("Equipment / Scope","scope",item?.scope,"text",true)}
         ${field("Vendor","vendor",item?.vendor,"text",true)}
@@ -682,10 +833,18 @@ function renderReports() {
 function exportCSV(type) {
   const rows = db[type] || [];
   if (!rows.length) return toast("No records to export");
-  const headers = [...new Set(rows.flatMap(x => Object.keys(x)))];
+  const exportRows = type === "purchases"
+    ? rows.map(row => {
+        const copy = {...row};
+        copy.documentName = row.document?.name || "";
+        delete copy.document;
+        return copy;
+      })
+    : rows;
+  const headers = [...new Set(exportRows.flatMap(x => Object.keys(x)))];
   const csv = [
     headers.join(","),
-    ...rows.map(row => headers.map(h => {
+    ...exportRows.map(row => headers.map(h => {
       const val = String(row[h] ?? "").replace(/"/g,'""');
       return `"${val}"`;
     }).join(","))
