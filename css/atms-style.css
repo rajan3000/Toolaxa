@@ -1,0 +1,42 @@
+
+@import url("atms-layout.css");
+@import url("atms-components.css");
+@import url("atms-responsive.css");
+
+:root {
+    --navy: #14243a;
+    --navy-light: #203653;
+    --blue: #3278d4;
+    --bg: #f3f6fa;
+    --card: #ffffff;
+    --text: #202b3c;
+    --muted: #718096;
+    --border: #e4eaf1;
+    --green: #16a36a;
+    --orange: #e99b32;
+    --red: #df5353;
+    --purple: #8462d5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}

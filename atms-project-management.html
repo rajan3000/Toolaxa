@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-05KPNRM3X5"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-05KPNRM3X5');
+    </script>
+
+    <!-- Primary SEO -->
+    <title>ATMS Project Management System | Toolaxa</title>
+    <meta name="description" content="Toolaxa ATMS Project Management System helps manage equipment inventory, procurement, purchase orders, vendors, installation, SITC, daily work, civil work, faults, maintenance and project reports.">
+    <meta name="keywords" content="ATMS Project Management, ATMS Inventory Management, Toll Plaza Management, Procurement Management, Purchase Order Tracking, Vendor Management, SITC Tracker, Toll Project Management Tool, Toolaxa">
+    <meta name="author" content="Toolaxa">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="theme-color" content="#174ea6">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolaxa.com/atms-project-management.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ATMS Project Management System | Toolaxa">
+    <meta property="og:description" content="Manage ATMS inventory, procurement, vendors, installation, daily work, civil work, maintenance and project reports using Toolaxa.">
+    <meta property="og:url" content="https://toolaxa.com/atms-project-management.html">
+    <meta property="og:site_name" content="Toolaxa">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ATMS Project Management System | Toolaxa">
+    <meta name="twitter:description" content="A complete ATMS project management tool to manage inventory, procurement, vendors, SITC, civil work, faults and reports.">
+
+    <link rel="stylesheet" href="css/atms-style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">🚧</div>
+            <div>
+                <h2>ATMS CONTROL</h2>
+                <small>PROJECT MANAGEMENT</small>
+            </div>
+        </div>
+
+        <div class="nav-label">MAIN MENU</div>
+
+        <button class="nav-btn active" data-page="dashboard">▦ Dashboard</button>
+        <button class="nav-btn" data-page="inventory">▣ Equipment Inventory</button>
+        <button class="nav-btn" data-page="procurement">▤ Procurement & PO</button>
+        <button class="nav-btn" data-page="vendors">♙ Vendor Management</button>
+        <button class="nav-btn" data-page="sitc">⚙ Installation & SITC</button>
+        <button class="nav-btn" data-page="daily">▥ Daily Work Log</button>
+        <button class="nav-btn" data-page="civil">▰ Civil Work Tracker</button>
+        <button class="nav-btn" data-page="faults">⚠ Fault & Maintenance</button>
+        <button class="nav-btn" data-page="reports">▧ Reports & Analytics</button>
+
+        <div class="nav-label">DATA MANAGEMENT</div>
+        <button class="nav-btn" data-page="backup">⬇ Backup & Restore</button>
+
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div class="top-left">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div class="topbar-title" id="topTitle">
+                    Project Dashboard
+                </div>
+            </div>
+
+            <div class="user-chip">
+                <div class="avatar">Toolaxa</div>
+                <span>🟢 Data saved in browser</span>
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+        <main class="content" id="content"></main>
+
+        <footer>
+            ATMS Project Management System | Version 1.0 | Made with ❤️ Toolaxa.com
+        </footer>
+
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modalBackdrop">
+
+    <div class="modal">
+
+        <div class="modal-head">
+            <h2 id="modalTitle">Add Record</h2>
+            <button class="close" id="modalClose">✕</button>
+        </div>
+
+        <form id="recordForm">
+
+            <div class="form-grid" id="formFields"></div>
+
+            <div class="form-footer">
+                <button type="button" class="btn" id="cancelBtn">
+                    Cancel
+                </button>
+
+                <button type="submit" class="btn primary">
+                    Save Record
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<!-- Main JavaScript -->
+<script type="module" src="js/atms-app.js"></script>
+
+</body>
+</html>

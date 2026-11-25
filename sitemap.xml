@@ -201,6 +201,11 @@
         <loc>https://toolaxa.com/atms-tms.html</loc> <!--39-->
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://toolaxa.com/atms-project-management.html</loc> <!--40-->
+        <priority>0.8</priority>
+    </url>
     
 
 </urlset>

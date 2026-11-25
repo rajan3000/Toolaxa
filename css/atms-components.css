@@ -1,0 +1,395 @@
+
+/* KPI CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.kpi {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 17px;
+}
+
+.kpi-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kpi-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #eef4ff;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+}
+
+.kpi .label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.kpi .value {
+    font-size: 25px;
+    font-weight: 750;
+    margin-top: 12px;
+}
+
+.kpi .sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* PANELS */
+.panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
+    min-width: 0;
+}
+
+.panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.panel-title h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.panel-title small {
+    color: var(--muted);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 16px;
+}
+
+/* PROGRESS BARS */
+.chart-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 125px 1fr 42px;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.bar-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bar-track {
+    height: 9px;
+    background: #edf1f6;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 20px;
+    background: var(--blue);
+}
+
+.bar-percent {
+    text-align: right;
+    font-weight: 650;
+}
+
+.progress {
+    height: 7px;
+    background: #edf1f6;
+    border-radius: 20px;
+    overflow: hidden;
+    min-width: 65px;
+}
+
+.progress > div {
+    height: 100%;
+    background: var(--green);
+    border-radius: 20px;
+}
+
+/* STATUS */
+.status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.status-row span:first-child {
+    color: #5c6879;
+}
+
+.pill {
+    padding: 4px 8px;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 650;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.pill.green { background: #e6f7ef; color: #168650; }
+.pill.orange { background: #fff3df; color: #a86912; }
+.pill.red { background: #ffeded; color: #c43e3e; }
+.pill.blue { background: #eaf2ff; color: #2865b9; }
+.pill.gray { background: #edf0f4; color: #637084; }
+.pill.purple { background: #f0eaff; color: #6f4cc4; }
+
+/* BUTTONS & SEARCH */
+.toolbar {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.search {
+    flex: 1;
+    min-width: 170px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 12px;
+    outline: none;
+    background: white;
+}
+
+.btn {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 13px;
+    background: white;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn:hover {
+    filter: brightness(.97);
+}
+
+.btn.primary {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+}
+
+.btn.danger {
+    color: var(--red);
+}
+
+.btn.small {
+    padding: 6px 9px;
+    font-size: 11px;
+}
+
+.btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* TABLE */
+.table-wrap {
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+th, td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+th {
+    background: #f8fafc;
+    color: #68778a;
+    font-weight: 650;
+    white-space: nowrap;
+}
+
+tbody tr:hover {
+    background: #fafcff;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.empty {
+    padding: 35px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.section-note {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.attachment-link {
+    color: #2769bd;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* MODAL & FORM */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #17243c99;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.modal-backdrop.show {
+    display: flex;
+}
+
+.modal {
+    background: white;
+    width: min(720px, 100%);
+    max-height: 92vh;
+    overflow: auto;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.modal-head h2 {
+    font-size: 17px;
+    margin: 0;
+}
+
+.close {
+    border: 0;
+    background: #f1f4f8;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    font-size: 11px;
+    font-weight: 650;
+    color: #556275;
+}
+
+.field input,
+.field select,
+.field textarea {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 10px;
+    font-size: 12px;
+    width: 100%;
+    background: white;
+}
+
+.field textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.modal-hint {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* NOTIFICATION */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #172c45;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 9px;
+    box-shadow: 0 8px 30px #0002;
+    z-index: 200;
+    font-size: 13px;
+    display: none;
+}
