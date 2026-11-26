@@ -1,0 +1,1077 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics - Toolaxa -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-05KPNRM3X5"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-05KPNRM3X5');
+    </script>
+
+<title>Structural Materials Calculator – Cement, Steel, Concrete & Cost | Toolaxa</title>
+
+<meta name="description" content="Free Structural Materials Calculator to estimate RCC concrete, cement, sand, aggregate, TMT steel, binding wire and shuttering quantities and construction costs for residential buildings.">
+
+<meta name="keywords" content="structural materials calculator, RCC calculator, concrete calculator, cement calculator, steel calculator, footing concrete calculator, column concrete calculator, beam calculator, slab concrete calculator, construction cost calculator, Toolaxa">
+
+<meta name="author" content="Toolaxa">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#111827">
+
+<link rel="canonical" href="https://toolaxa.com/tools/structural-materials-calculator.html">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+<meta name="google-site-verification" content="oLRbp0exIiNsVlyNDaDzxBgcRH5KpdTVX0psPuLf41I">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Structural Materials Calculator | Toolaxa">
+<meta property="og:description" content="Calculate structural concrete, cement, sand, aggregate, steel, binding wire and shuttering quantities with estimated costs.">
+<meta property="og:url" content="https://toolaxa.com/tools/structural-materials-calculator.html">
+<meta property="og:site_name" content="Toolaxa">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Structural Materials Calculator | Toolaxa">
+<meta name="twitter:description" content="Free RCC structural material quantity and cost estimation calculator.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Structural Materials Calculator",
+  "url": "https://toolaxa.com/tools/structural-materials-calculator.html",
+  "description": "Free online calculator for estimating RCC concrete, cement, sand, aggregate, reinforcement steel, binding wire and shuttering quantities and costs.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript enabled",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolaxa",
+    "url": "https://toolaxa.com/"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://toolaxa.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://toolaxa.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Structural Materials Calculator",
+      "item": "https://toolaxa.com/tools/structural-materials-calculator.html"
+    }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --primary:#2563eb;
+  --primary-dark:#1d4ed8;
+  --bg:#f3f6fb;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --green:#059669;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+button,input,select{font:inherit}
+header{
+  background:linear-gradient(135deg,#111827,#1d4ed8);
+  color:white;
+  padding:26px 18px 32px;
+}
+.header-inner{max-width:1150px;margin:auto}
+.brand{font-size:12px;font-weight:800;letter-spacing:1px;opacity:.85}
+header h1{font-size:clamp(23px,4vw,34px);margin:12px 0}
+header p{color:#dbeafe;font-size:14px;line-height:1.7;max-width:800px;margin:0}
+.container{max-width:1150px;margin:-15px auto 35px;padding:0 15px}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 8px 28px rgba(15,23,42,.05);
+  padding:22px;
+  margin-bottom:18px;
+}
+.card h2{font-size:18px;margin:0 0 6px}
+.sub{font-size:13px;color:var(--muted);margin:0 0 20px;line-height:1.6}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.field label{
+  display:block;font-size:13px;font-weight:700;margin-bottom:7px
+}
+.field input,.field select{
+  width:100%;height:44px;border:1px solid #cbd5e1;
+  border-radius:10px;padding:9px 11px;background:white;outline:none;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--primary);box-shadow:0 0 0 3px #dbeafe
+}
+.hint{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.4}
+.section-title{
+  margin:22px 0 12px;font-weight:800;font-size:15px;
+  padding-bottom:9px;border-bottom:1px solid var(--border)
+}
+.mode-info{
+  background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;
+  padding:13px;color:#1e40af;font-size:13px;line-height:1.6;margin-bottom:17px
+}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{
+  min-height:44px;border:0;border-radius:10px;padding:11px 17px;
+  cursor:pointer;font-weight:750;transition:.15s
+}
+.btn-primary{background:var(--primary);color:white}
+.btn-primary:hover{background:var(--primary-dark)}
+.btn-secondary{background:#eaf0f8;color:#334155}
+.btn-green{background:var(--green);color:white}
+.btn:hover{filter:brightness(.97)}
+.summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;margin-bottom:18px
+}
+.stat{
+  background:white;border:1px solid var(--border);border-radius:14px;
+  padding:17px;box-shadow:0 5px 20px rgba(15,23,42,.04)
+}
+.stat-icon{font-size:22px;margin-bottom:8px}
+.stat-label{font-size:12px;color:var(--muted);font-weight:650}
+.stat-value{font-size:23px;font-weight:850;margin-top:5px;overflow-wrap:anywhere}
+.stat-unit{font-size:11px;color:var(--muted);margin-top:4px}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:680px}
+th,td{
+  padding:12px 10px;border-bottom:1px solid var(--border);
+  text-align:left;font-size:13px
+}
+th{background:#f8fafc;color:#475569}
+tfoot td{font-weight:850;background:#f8fafc}
+.rate{
+  width:110px;border:1px solid #cbd5e1;border-radius:8px;padding:8px
+}
+.material-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px
+}
+.mini{
+  background:#f9fbff;border:1px solid var(--border);
+  border-radius:12px;padding:14px
+}
+.mini h3{font-size:13px;margin:0 0 8px}
+.mini .number{font-size:20px;font-weight:850}
+.mini small{font-size:11px;color:var(--muted);line-height:1.5}
+.cost-box{
+  margin-top:16px;background:#ecfdf5;border:1px solid #bbf7d0;
+  padding:18px;border-radius:13px
+}
+.cost-box .total{font-size:28px;font-weight:900;color:#047857}
+.note{
+  margin-top:16px;padding:13px;background:#fffbeb;
+  border-left:4px solid #f59e0b;border-radius:8px;
+  color:#78350f;font-size:12px;line-height:1.7
+}
+.info-content{font-size:14px;line-height:1.8;color:#475569}
+.info-content h3{font-size:15px;color:var(--text);margin:20px 0 7px}
+.faq-item{border-bottom:1px solid var(--border);padding:13px 0}
+.faq-item:last-child{border-bottom:0}
+.faq-item h3{font-size:14px;margin:0 0 7px}
+.faq-item p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+.error-message{
+  display:none;
+  background:#fef2f2;
+  color:#991b1b;
+  border:1px solid #fecaca;
+  padding:12px;
+  border-radius:10px;
+  margin-top:15px;
+  font-size:13px;
+  line-height:1.6;
+}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:22px;line-height:1.9}
+footer a{color:var(--primary);text-decoration:none}
+.hidden{display:none!important}
+@media(max-width:900px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .summary{grid-template-columns:repeat(2,1fr)}
+ .material-cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+ header{padding:22px 15px 27px}
+ .container{padding:0 10px}
+ .card{padding:15px}
+ .grid{grid-template-columns:1fr 1fr;gap:11px}
+ .summary{grid-template-columns:1fr 1fr;gap:9px}
+ .stat{padding:13px}
+ .stat-value{font-size:19px}
+ .material-cards{grid-template-columns:1fr 1fr;gap:9px}
+ .mini{padding:11px}
+ .mini .number{font-size:17px}
+ .btn{width:100%}
+}
+@media(max-width:360px){
+ .grid{grid-template-columns:1fr}
+}
+@media print{
+ header{background:white!important;color:black!important}
+ header p{color:#333!important}
+ body{background:white}
+ .container{margin:0;max-width:100%}
+ .card,.stat{box-shadow:none;break-inside:avoid}
+ .btn-row,button,footer{display:none!important}
+ .card{border:1px solid #ccc}
+ th,td{padding:6px;font-size:10px}
+ .note{background:white!important}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="header-inner">
+  <div class="brand">TOOLAXA • CONSTRUCTION TOOLS</div>
+  <h1>🏗️ Structural Materials Calculator</h1>
+  <p>Estimate RCC concrete, cement, sand, aggregate, TMT steel reinforcement, binding wire and shuttering requirements and approximate construction costs for residential buildings.</p>
+ </div>
+</header>
+
+<main class="container">
+
+<section class="card">
+ <h2>📐 Project & Structural Settings</h2>
+ <p class="sub">Select concrete grade, procurement mode, wastage and reinforcement assumptions.</p>
+
+ <div class="grid">
+  <div class="field">
+   <label for="floors">Number of Floors</label>
+   <select id="floors">
+    <option value="1">Ground Floor</option>
+    <option value="2" selected>G+1 (2 Floors)</option>
+    <option value="3">G+2 (3 Floors)</option>
+    <option value="4">G+3 (4 Floors)</option>
+    <option value="5">5 Floors</option>
+    <option value="6">6 Floors</option>
+    <option value="7">7 Floors</option>
+    <option value="8">8 Floors</option>
+    <option value="9">9 Floors</option>
+    <option value="10">10 Floors</option>
+   </select>
+   <div class="hint">Reference information only; dimensions are entered separately.</div>
+  </div>
+
+  <div class="field">
+   <label for="grade">Concrete Grade</label>
+   <select id="grade">
+    <option value="M10">M10 (1:3:6)</option>
+    <option value="M15">M15 (1:2:4)</option>
+    <option value="M20" selected>M20 (approx. 1:1.5:3)</option>
+    <option value="M25">M25 (Design Mix Approx.)</option>
+    <option value="M30">M30 (Design Mix Approx.)</option>
+    <option value="M35">M35 (Design Mix Approx.)</option>
+    <option value="M40">M40 (Design Mix Approx.)</option>
+   </select>
+  </div>
+
+  <div class="field">
+   <label for="mode">Concrete Procurement Mode</label>
+   <select id="mode">
+    <option value="mix" selected>Site Mix (Cement + Sand + Aggregate)</option>
+    <option value="rmc">RMC Ready Mix Concrete</option>
+   </select>
+  </div>
+
+  <div class="field">
+   <label for="wastage">Material Wastage (%)</label>
+   <input type="number" id="wastage" value="5" min="0" max="30" step="0.5">
+  </div>
+
+  <div class="field">
+   <label for="steelRate">Steel Consumption (kg/m³)</label>
+   <input type="number" id="steelRate" value="100" min="0" step="1">
+   <div class="hint">Preliminary planning assumption only. Use structural drawings for actual steel.</div>
+  </div>
+
+  <div class="field">
+   <label for="wirePercent">Binding Wire (% of Steel)</label>
+   <input type="number" id="wirePercent" value="1" min="0" max="5" step="0.1">
+  </div>
+ </div>
+
+ <div class="mode-info" id="modeInfo" aria-live="polite"></div>
+
+ <div id="designMixBox">
+  <div class="section-title">🧪 Design Mix Cement Content (M25 and Above)</div>
+  <div class="grid">
+   <div class="field">
+    <label for="cementKg">Cement (kg/m³)</label>
+    <input type="number" id="cementKg" value="360" min="0">
+   </div>
+   <div class="field">
+    <label for="sandM3">Sand (m³/m³ Concrete)</label>
+    <input type="number" id="sandM3" value="0.42" min="0" step="0.01">
+   </div>
+   <div class="field">
+    <label for="aggM3">Aggregate (m³/m³ Concrete)</label>
+    <input type="number" id="aggM3" value="0.84" min="0" step="0.01">
+   </div>
+   <div class="field">
+    <label for="cementBagKg">Cement Bag Weight (kg)</label>
+    <input type="number" id="cementBagKg" value="50" min="1">
+   </div>
+  </div>
+  <div class="hint">For M25 and higher, these are adjustable preliminary consumption assumptions, not an approved mix design.</div>
+ </div>
+
+ <div class="section-title">📏 Structural Dimensions</div>
+ <p class="sub">Enter dimensions in feet (ft) and inches (in). Quantity means number of structural elements.</p>
+
+ <div class="grid">
+  <div class="field">
+   <label for="footQty">Footings — Number</label>
+   <input type="number" id="footQty" value="12" min="0" step="1">
+  </div>
+  <div class="field">
+   <label for="footL">Footing Length (ft)</label>
+   <input type="number" id="footL" value="5" min="0" step="0.1">
+  </div>
+  <div class="field">
+   <label for="footW">Footing Width (ft)</label>
+   <input type="number" id="footW" value="5" min="0" step="0.1">
+  </div>
+  <div class="field">
+   <label for="footD">Footing Thickness (in)</label>
+   <input type="number" id="footD" value="12" min="0" step="0.5">
+  </div>
+
+  <div class="field">
+   <label for="colQty">Columns — Total Number</label>
+   <input type="number" id="colQty" value="12" min="0" step="1">
+  </div>
+  <div class="field">
+   <label for="colL">Column Length (ft)</label>
+   <input type="number" id="colL" value="1" min="0" step="0.1">
+  </div>
+  <div class="field">
+   <label for="colW">Column Width (ft)</label>
+   <input type="number" id="colW" value="1" min="0" step="0.1">
+  </div>
+  <div class="field">
+   <label for="colH">Column Height (ft)</label>
+   <input type="number" id="colH" value="10" min="0" step="0.1">
+   <div class="hint">Enter combined height of all columns.</div>
+  </div>
+
+  <div class="field">
+   <label for="beamQty">Beams — Number</label>
+   <input type="number" id="beamQty" value="20" min="0" step="1">
+  </div>
+  <div class="field">
+   <label for="beamL">Beam Length (ft)</label>
+   <input type="number" id="beamL" value="12" min="0" step="0.1">
+  </div>
+  <div class="field">
+   <label for="beamW">Beam Width (ft)</label>
+   <input type="number" id="beamW" value="0.9" min="0" step="0.1">
+  </div>
+  <div class="field">
+   <label for="beamD">Beam Depth (ft)</label>
+   <input type="number" id="beamD" value="1.2" min="0" step="0.1">
+  </div>
+
+  <div class="field">
+   <label for="slabArea">Slab Area (sq.ft)</label>
+   <input type="number" id="slabArea" value="1000" min="0">
+  </div>
+  <div class="field">
+   <label for="slabT">Slab Thickness (in)</label>
+   <input type="number" id="slabT" value="5" min="0" step="0.5">
+  </div>
+  <div class="field">
+   <label for="stairVolume">Stairs / Other RCC (m³)</label>
+   <input type="number" id="stairVolume" value="2" min="0" step="0.1">
+  </div>
+  <div class="field">
+   <label for="otherVolume">Other Concrete (m³)</label>
+   <input type="number" id="otherVolume" value="0" min="0" step="0.1">
+   <div class="hint">Additional concrete not listed above.</div>
+  </div>
+ </div>
+
+ <div class="section-title">💲 Material Rates (Local Market)</div>
+ <div class="grid">
+  <div class="field">
+   <label for="cementPrice">Cement (₹/Bag)</label>
+   <input type="number" id="cementPrice" value="400" min="0">
+  </div>
+  <div class="field">
+   <label for="sandPrice">Sand (₹/CFT)</label>
+   <input type="number" id="sandPrice" value="60" min="0">
+  </div>
+  <div class="field">
+   <label for="aggregatePrice">Aggregate (₹/CFT)</label>
+   <input type="number" id="aggregatePrice" value="50" min="0">
+  </div>
+  <div class="field">
+   <label for="steelPrice">Steel (₹/Kg)</label>
+   <input type="number" id="steelPrice" value="65" min="0">
+  </div>
+  <div class="field">
+   <label for="wirePrice">Binding Wire (₹/Kg)</label>
+   <input type="number" id="wirePrice" value="80" min="0">
+  </div>
+  <div class="field">
+   <label for="rmcPrice">RMC (₹/m³)</label>
+   <input type="number" id="rmcPrice" value="5500" min="0">
+  </div>
+  <div class="field">
+   <label for="shutteringPrice">Shuttering (₹/sq.ft)</label>
+   <input type="number" id="shutteringPrice" value="60" min="0">
+  </div>
+  <div class="field">
+   <label for="shutteringArea">Shuttering Area (sq.ft)</label>
+   <input type="number" id="shutteringArea" value="0" min="0">
+   <div class="hint">Optional manual area input. Set 0 to exclude.</div>
+  </div>
+ </div>
+
+ <div id="errorMessage" class="error-message" role="alert"></div>
+
+ <div class="btn-row">
+  <button type="button" class="btn btn-primary" id="calculateBtn">🧮 Calculate Structural Materials</button>
+  <button type="button" class="btn btn-secondary" id="resetBtn">↺ Reset Values</button>
+ </div>
+</section>
+
+<section class="summary" aria-label="Calculation summary">
+ <div class="stat">
+  <div class="stat-icon">🏗️</div>
+  <div class="stat-label">Total Concrete</div>
+  <div class="stat-value" id="concreteStat">0.00 m³</div>
+  <div class="stat-unit" id="concreteFtStat">0 CFT</div>
+ </div>
+ <div class="stat">
+  <div class="stat-icon">🪣</div>
+  <div class="stat-label">Cement</div>
+  <div class="stat-value" id="cementStat">0 Bags</div>
+  <div class="stat-unit" id="cementKgStat">0 kg</div>
+ </div>
+ <div class="stat">
+  <div class="stat-icon">🔩</div>
+  <div class="stat-label">Steel Reinforcement</div>
+  <div class="stat-value" id="steelStat">0 kg</div>
+  <div class="stat-unit" id="steelTonStat">0 tonnes</div>
+ </div>
+ <div class="stat">
+  <div class="stat-icon">💰</div>
+  <div class="stat-label">Material Cost Estimate</div>
+  <div class="stat-value" id="costStat">₹0</div>
+  <div class="stat-unit">Approximate amount</div>
+ </div>
+</section>
+
+<section class="card">
+ <h2>📦 Material Quantity Overview</h2>
+ <p class="sub">Material summary calculated from your structural dimensions.</p>
+ <div class="material-cards" id="materialCards" aria-live="polite"></div>
+</section>
+
+<section class="card">
+ <h2>📋 Detailed Structural Material Estimate</h2>
+ <p class="sub">Edit rates to update the total estimate. RMC mode excludes separately counted cement, sand and aggregate.</p>
+
+ <div class="table-wrap">
+  <table>
+   <thead>
+    <tr>
+     <th>Material</th>
+     <th>Quantity</th>
+     <th>Unit</th>
+     <th>Rate (₹)</th>
+     <th>Amount (₹)</th>
+    </tr>
+   </thead>
+   <tbody id="tableBody"></tbody>
+   <tfoot>
+    <tr>
+     <td colspan="4">TOTAL STRUCTURAL MATERIAL COST</td>
+     <td id="grandTotal">₹0</td>
+    </tr>
+   </tfoot>
+  </table>
+ </div>
+
+ <div class="cost-box">
+  <div style="font-size:13px;color:#047857;font-weight:700">Estimated Structural Material Budget</div>
+  <div class="total" id="budgetTotal">₹0</div>
+  <div style="font-size:12px;color:#047857;margin-top:5px">Rate inputs can be changed above or in the table.</div>
+ </div>
+
+ <div class="btn-row">
+  <button type="button" class="btn btn-green" id="csvBtn">⬇ Download CSV Estimate</button>
+  <button type="button" class="btn btn-secondary" id="printBtn">🖨 Print / Save PDF</button>
+ </div>
+
+ <div class="note">
+  <strong>Structural safety warning:</strong> This is a preliminary material estimation tool only. It does not design structural members or determine safe reinforcement. Actual footing, column, beam, slab dimensions, concrete grade, reinforcement quantity and mix design must be obtained from approved architectural and structural drawings and the project engineer.
+ </div>
+</section>
+
+<section class="card">
+ <h2>ℹ️ Included Structural Materials</h2>
+ <p class="sub">This calculator covers the core materials used in RCC structural work.</p>
+ <div class="material-cards">
+  <div class="mini"><h3>🪣 Cement</h3><small>Portland cement / PPC / OPC bag quantity for site-mixed concrete.</small></div>
+  <div class="mini"><h3>🏖️ Sand</h3><small>Fine aggregate quantity in CFT and cubic metres.</small></div>
+  <div class="mini"><h3>🪨 Coarse Aggregate</h3><small>Stone chips / coarse aggregate used in concrete.</small></div>
+  <div class="mini"><h3>🔩 Steel / TMT</h3><small>Reinforcement steel quantity in kilograms and metric tonnes.</small></div>
+  <div class="mini"><h3>🧵 Binding Wire</h3><small>Wire allowance based on the entered steel percentage.</small></div>
+  <div class="mini"><h3>🚚 RMC</h3><small>Ready Mix Concrete estimate in m³, if selected.</small></div>
+  <div class="mini"><h3>🪵 Shuttering</h3><small>Optional formwork area and cost allowance.</small></div>
+  <div class="mini"><h3>🧱 Concrete</h3><small>Footing, columns, beams, slabs and additional RCC volume.</small></div>
+ </div>
+</section>
+
+<section class="card info-content">
+ <h2>📘 Structural Materials Calculator – How to Use</h2>
+ <p>This free online structural materials calculator helps estimate the approximate quantities and costs of materials required for residential RCC construction. It calculates concrete volume using footing, column, beam, slab and additional RCC dimensions.</p>
+
+ <h3>1. Enter project settings</h3>
+ <p>Select the concrete grade, procurement mode, material wastage allowance, steel consumption assumption and binding wire percentage.</p>
+
+ <h3>2. Enter structural dimensions</h3>
+ <p>Enter the number and dimensions of footings, columns and beams, along with slab area, slab thickness and any additional concrete volume. All dimensions should be entered in the units shown beside each field.</p>
+
+ <h3>3. Choose Site Mix or RMC</h3>
+ <p>In Site Mix mode, the calculator estimates cement, sand and aggregate quantities. In RMC mode, the concrete volume is priced as ready-mix concrete instead of charging those ingredients separately.</p>
+
+ <h3>4. Enter local material rates</h3>
+ <p>Update cement, sand, aggregate, steel, binding wire, RMC and shuttering rates according to your local supplier quotations. The estimated budget updates automatically.</p>
+
+ <h3>5. Download your estimate</h3>
+ <p>Use Download CSV to save the material estimate in spreadsheet-compatible format or Print / Save PDF to create a printable report.</p>
+
+ <h3>Important calculation limitations</h3>
+ <p>The calculator uses simplified volume and consumption assumptions for preliminary budgeting. It does not account for every construction detail, such as reinforcement bar bending schedules, laps, development length, cover, concrete pump charges, labour, transportation, taxes or site-specific mix design. The number of floors is displayed as project information; it does not automatically multiply the entered dimensions.</p>
+</section>
+
+<section class="card">
+ <h2>❓ Frequently Asked Questions</h2>
+
+ <div class="faq-item">
+  <h3>What is a structural materials calculator?</h3>
+  <p>It is an online estimation tool that calculates approximate concrete, cement, sand, aggregate, steel, binding wire and shuttering quantities from entered structural dimensions.</p>
+ </div>
+
+ <div class="faq-item">
+  <h3>Can I calculate footing, column, beam and slab concrete?</h3>
+  <p>Yes. Enter the dimensions and quantities of footings, columns, beams and slabs. The calculator adds their estimated volumes to determine total concrete quantity.</p>
+ </div>
+
+ <div class="faq-item">
+  <h3>What is the difference between Site Mix and RMC?</h3>
+  <p>Site Mix estimates cement, sand and aggregate separately. RMC estimates ready-mix concrete using a per-cubic-metre rate and does not charge those ingredients separately.</p>
+ </div>
+
+ <div class="faq-item">
+  <h3>Does this calculator provide the actual steel requirement?</h3>
+  <p>No. Steel is estimated using an editable kg per cubic metre assumption. Actual reinforcement must be calculated from approved structural drawings and the reinforcement bar bending schedule.</p>
+ </div>
+
+ <div class="faq-item">
+  <h3>Can I change the material prices?</h3>
+  <p>Yes. You can change the local market rates in the input fields or edit the rates directly in the detailed estimate table.</p>
+ </div>
+
+ <div class="faq-item">
+  <h3>Is this structural calculator free?</h3>
+  <p>Yes. You can use this Toolaxa calculator online without a calculation fee and download your estimate as a CSV file or printable PDF.</p>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ Structural Materials Calculator | Powered by <a href="../index.html">Toolaxa</a><br>
+ <a href="../index.html">Back to Toolaxa Home</a>
+ <br>
+ <span>For preliminary estimation only. Always consult a qualified structural engineer.</span>
+</footer>
+
+<script>
+"use strict";
+
+const $ = id => document.getElementById(id);
+const ft3PerM3 = 35.3147;
+const defaultValues = {};
+
+const gradeRatios = {
+ M10:{c:3,s:6,a:1},
+ M15:{c:2,s:4,a:1},
+ M20:{c:1.5,s:3,a:1}
+};
+
+let rows = [];
+let latest = null;
+
+function n(id){
+ const value = Number($(id).value);
+ return Number.isFinite(value) ? value : 0;
+}
+
+function fmt(x,d=2){
+ return Number(x || 0).toLocaleString("en-IN",{
+  minimumFractionDigits:d,
+  maximumFractionDigits:d
+ });
+}
+
+function money(x){
+ return "₹"+Number(x || 0).toLocaleString("en-IN",{
+  maximumFractionDigits:0
+ });
+}
+
+function readDefaults(){
+ document.querySelectorAll("input,select").forEach(el=>{
+  if(el.id) defaultValues[el.id]=el.value;
+ });
+}
+
+function showError(message){
+ const box=$("errorMessage");
+ box.textContent=message;
+ box.style.display="block";
+ box.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function clearError(){
+ const box=$("errorMessage");
+ box.textContent="";
+ box.style.display="none";
+}
+
+function validateInputs(){
+ const fields=document.querySelectorAll("input[type='number']");
+ for(const field of fields){
+  const value=Number(field.value);
+
+  if(field.value.trim()==="" || !Number.isFinite(value)){
+   showError("Please enter a valid number in "+field.labels[0].textContent+".");
+   field.focus();
+   return false;
+  }
+
+  if(value<0){
+   showError("Negative values are not allowed. Please check "+field.labels[0].textContent+".");
+   field.focus();
+   return false;
+  }
+
+  if(field.id==="wastage" && value>30){
+   showError("Material wastage must be between 0% and 30%.");
+   field.focus();
+   return false;
+  }
+
+  if(field.id==="wirePercent" && value>5){
+   showError("Binding wire percentage must be between 0% and 5%.");
+   field.focus();
+   return false;
+  }
+
+  if(field.id==="cementBagKg" && value<=0){
+   showError("Cement bag weight must be greater than zero.");
+   field.focus();
+   return false;
+  }
+ }
+
+ const integerFields=["floors","footQty","colQty","beamQty"];
+ for(const id of integerFields){
+  if(!Number.isInteger(n(id))){
+   showError($(id).labels[0].textContent+" must be a whole number.");
+   $(id).focus();
+   return false;
+  }
+ }
+
+ return true;
+}
+
+function toggleMode(){
+ const mode=$("mode").value;
+ const grade=$("grade").value;
+ const info=$("modeInfo");
+ const designBox=$("designMixBox");
+
+ if(mode==="rmc"){
+  info.innerHTML="<b>RMC Mode:</b> Ready Mix Concrete will be calculated in m³. Cement, sand and aggregate are included in RMC pricing and will not be charged separately.";
+ }else{
+  info.innerHTML="<b>Site Mix Mode:</b> Concrete volume will be converted into cement, sand and aggregate quantities. Mix ratio assumptions are approximate and should be verified.";
+ }
+
+ const custom=!gradeRatios[grade] && mode==="mix";
+ designBox.classList.toggle("hidden",!custom);
+}
+
+function calculate(){
+ clearError();
+ toggleMode();
+
+ if(!validateInputs())return;
+
+ const floors=n("floors");
+ const wastage=n("wastage")/100;
+ const steelRate=n("steelRate");
+ const wirePercent=n("wirePercent")/100;
+ const grade=$("grade").value;
+ const mode=$("mode").value;
+
+ // All structural dimensions are entered in feet and inches.
+ const footingFt3=n("footQty")*n("footL")*n("footW")*(n("footD")/12);
+ const columnsFt3=n("colQty")*n("colL")*n("colW")*n("colH");
+ const beamsFt3=n("beamQty")*n("beamL")*n("beamW")*n("beamD");
+ const slabFt3=n("slabArea")*(n("slabT")/12);
+ const extraFt3=(n("stairVolume")+n("otherVolume"))*ft3PerM3;
+
+ const baseFt3=footingFt3+columnsFt3+beamsFt3+slabFt3+extraFt3;
+ const baseM3=baseFt3/ft3PerM3;
+ const totalM3=baseM3*(1+wastage);
+ const totalFt3=totalM3*ft3PerM3;
+
+ // Preliminary reinforcement estimate based on editable kg/m³.
+ const steelKg=totalM3*steelRate;
+ const bindingKg=steelKg*wirePercent;
+
+ let cementBags=0,cementKg=0,sandM3=0,aggM3=0;
+ let sandCft=0,aggCft=0;
+
+ if(mode==="mix"){
+  if(gradeRatios[grade]){
+   const ratio=gradeRatios[grade];
+   const sum=ratio.c+ratio.s+ratio.a;
+   const dryVolume=totalM3*1.54;
+
+   cementKg=dryVolume*(ratio.c/sum)*1440;
+   sandM3=dryVolume*(ratio.s/sum);
+   aggM3=dryVolume*(ratio.a/sum);
+  }else{
+   cementKg=totalM3*n("cementKg");
+   sandM3=totalM3*n("sandM3");
+   aggM3=totalM3*n("aggM3");
+  }
+
+  cementBags=cementKg/n("cementBagKg");
+  sandCft=sandM3*ft3PerM3;
+  aggCft=aggM3*ft3PerM3;
+ }
+
+ const shutterArea=n("shutteringArea");
+
+ rows=[
+  {
+   name:"Concrete (RCC)",
+   qty:totalM3,
+   unit:"m³",
+   rate:n("rmcPrice"),
+   include:true,
+   type:"concrete"
+  },
+  {
+   name:"Cement",
+   qty:cementBags,
+   unit:n("cementBagKg")+" kg Bags",
+   rate:n("cementPrice"),
+   include:mode==="mix"
+  },
+  {
+   name:"Sand (Fine Aggregate)",
+   qty:sandCft,
+   unit:"CFT",
+   rate:n("sandPrice"),
+   include:mode==="mix"
+  },
+  {
+   name:"Coarse Aggregate / Stone Chips",
+   qty:aggCft,
+   unit:"CFT",
+   rate:n("aggregatePrice"),
+   include:mode==="mix"
+  },
+  {
+   name:"Steel / TMT Reinforcement",
+   qty:steelKg,
+   unit:"Kg",
+   rate:n("steelPrice"),
+   include:true
+  },
+  {
+   name:"Binding Wire",
+   qty:bindingKg,
+   unit:"Kg",
+   rate:n("wirePrice"),
+   include:true
+  },
+  {
+   name:"Shuttering / Formwork (Optional)",
+   qty:shutterArea,
+   unit:"Sq.ft",
+   rate:n("shutteringPrice"),
+   include:shutterArea>0
+  }
+ ];
+
+ latest={
+  floors,grade,mode,wastage,totalM3,totalFt3,steelKg,
+  bindingKg,cementKg,cementBags,sandM3,sandCft,
+  aggM3,aggCft,shutterArea,rows
+ };
+
+ render();
+}
+
+function render(){
+ if(!latest)return;
+
+ const {
+  totalM3,totalFt3,steelKg,bindingKg,cementKg,
+  cementBags,sandCft,aggCft,mode
+ }=latest;
+
+ $("concreteStat").textContent=fmt(totalM3)+" m³";
+ $("concreteFtStat").textContent=fmt(totalFt3)+" CFT";
+
+ $("cementStat").textContent=mode==="mix"
+  ?fmt(cementBags,1)+" Bags":"N/A (RMC)";
+
+ $("cementKgStat").textContent=mode==="mix"
+  ?fmt(cementKg,0)+" kg":"Included in RMC";
+
+ $("steelStat").textContent=fmt(steelKg,0)+" kg";
+ $("steelTonStat").textContent=fmt(steelKg/1000,3)+" tonnes";
+
+ const cards=[
+  ["🏗️ Concrete",totalM3,"m³",fmt(totalFt3)+" CFT"],
+  ["🪣 Cement",mode==="mix"?cementBags:0,mode==="mix"?"Bags":"RMC",mode==="mix"?fmt(cementKg,0)+" kg":"Included in RMC"],
+  ["🏖️ Sand",sandCft,"CFT",fmt(sandCft/ft3PerM3)+" m³"],
+  ["🪨 Aggregate",aggCft,"CFT",fmt(aggCft/ft3PerM3)+" m³"],
+  ["🔩 Steel",steelKg,"Kg",fmt(steelKg/1000,3)+" tonnes"],
+  ["🧵 Binding Wire",bindingKg,"Kg","Approximate"],
+  ["🪵 Shuttering",latest.shutterArea,"Sq.ft","Optional allowance"]
+ ];
+
+ $("materialCards").innerHTML=cards.map(c=>`
+  <div class="mini">
+   <h3>${c[0]}</h3>
+   <div class="number">${fmt(c[1],2)} ${c[2]}</div>
+   <small>${c[3]}</small>
+  </div>
+ `).join("");
+
+ renderTable();
+}
+
+function renderTable(){
+ const body=$("tableBody");
+ body.innerHTML="";
+ let total=0;
+
+ rows.forEach((m,i)=>{
+  const isConcrete=m.type==="concrete";
+  const chargeConcrete=isConcrete && latest.mode==="rmc";
+  const chargeMaterial=m.include && !isConcrete;
+
+  const cost=(chargeConcrete || chargeMaterial)?m.qty*m.rate:0;
+  total+=cost;
+
+  const rateInput=(isConcrete || m.include)
+   ?`<input class="rate" aria-label="${m.name} rate" type="number" min="0" step="1" value="${m.rate}" data-rate-index="${i}">`
+   :"—";
+
+  let amountText;
+
+  if(isConcrete && latest.mode==="mix"){
+   amountText='<span style="color:#64748b;font-size:12px">Included in Site Mix materials</span>';
+  }else if(m.include){
+   amountText=money(cost);
+  }else{
+   amountText="—";
+  }
+
+  const row=document.createElement("tr");
+  row.innerHTML=`
+   <td><b>${m.name}</b></td>
+   <td>${fmt(m.qty,2)}</td>
+   <td>${m.unit}</td>
+   <td>${rateInput}</td>
+   <td>${amountText}</td>`;
+
+  body.appendChild(row);
+ });
+
+ body.querySelectorAll("[data-rate-index]").forEach(input=>{
+  input.addEventListener("change",function(){
+   updateRate(Number(this.dataset.rateIndex),this.value);
+  });
+ });
+
+ $("grandTotal").textContent=money(total);
+ $("budgetTotal").textContent=money(total);
+ $("costStat").textContent=money(total);
+}
+
+function updateRate(index,val){
+ const value=Number(val);
+
+ if(!Number.isFinite(value) || value<0){
+  showError("Please enter a valid non-negative material rate.");
+  renderTable();
+  return;
+ }
+
+ rows[index].rate=value;
+
+ const inputIds={
+  cement: "cementPrice",
+  "Sand (Fine Aggregate)":"sandPrice",
+  "Coarse Aggregate / Stone Chips":"aggregatePrice",
+  "Steel / TMT Reinforcement":"steelPrice",
+  "Binding Wire":"wirePrice",
+  "Shuttering / Formwork (Optional)":"shutteringPrice",
+  "Concrete (RCC)":"rmcPrice"
+ };
+
+ const sourceId=inputIds[rows[index].name];
+ if(sourceId)$(sourceId).value=value;
+
+ renderTable();
+}
+
+function csvEscape(value){
+ return '"'+String(value).replace(/"/g,'""')+'"';
+}
+
+function downloadCSV(){
+ if(!latest){
+  alert("Please calculate materials first.");
+  return;
+ }
+
+ const lines=[
+  ["Structural Materials Estimate"],
+  ["Concrete Grade",latest.grade],
+  ["Procurement Mode",latest.mode==="mix"?"Site Mix":"RMC"],
+  ["Number of Floors",latest.floors],
+  ["Wastage (%)",latest.wastage*100],
+  ["Total Concrete (m3)",latest.totalM3.toFixed(3)],
+  [],
+  ["Material","Quantity","Unit","Rate INR","Amount INR"]
+ ];
+
+ let total=0;
+
+ rows.forEach(m=>{
+  const cost=(m.type==="concrete")
+   ?(latest.mode==="rmc"?m.qty*m.rate:0)
+   :(m.include?m.qty*m.rate:0);
+
+  total+=cost;
+
+  lines.push([
+   m.name,
+   m.qty.toFixed(3),
+   m.unit,
+   m.rate,
+   cost.toFixed(2)
+  ]);
+ });
+
+ lines.push([]);
+ lines.push(["TOTAL","","","",total.toFixed(2)]);
+ lines.push(["Note","Preliminary estimates only. Verify quantities with approved structural drawings."]);
+
+ const csv=lines.map(row=>row.map(csvEscape).join(",")).join("\r\n");
+
+ const blob=new Blob(["\ufeff"+csv],{
+  type:"text/csv;charset=utf-8"
+ });
+
+ const url=URL.createObjectURL(blob);
+ const link=document.createElement("a");
+
+ link.href=url;
+ link.download="toolaxa-structural-materials-estimate.csv";
+
+ document.body.appendChild(link);
+ link.click();
+ link.remove();
+
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+function resetAll(){
+ Object.keys(defaultValues).forEach(id=>{
+  const el=$(id);
+  if(el)el.value=defaultValues[id];
+ });
+
+ clearError();
+ toggleMode();
+ calculate();
+}
+
+$("calculateBtn").addEventListener("click",calculate);
+$("resetBtn").addEventListener("click",resetAll);
+$("csvBtn").addEventListener("click",downloadCSV);
+$("printBtn").addEventListener("click",()=>window.print());
+
+$("mode").addEventListener("change",toggleMode);
+$("grade").addEventListener("change",toggleMode);
+
+readDefaults();
+toggleMode();
+calculate();
+</script>
+
+</body>
+</html>
