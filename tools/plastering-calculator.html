@@ -1,0 +1,1438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics - Toolaxa -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-05KPNRM3X5"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-05KPNRM3X5');
+    </script>
+
+<title>Plastering Calculator – Cement, Sand & Labour Cost | Toolaxa</title>
+<meta name="description" content="Free plastering calculator to estimate internal wall, external wall and ceiling plaster area, cement, sand, labour charges and total construction cost.">
+<meta name="keywords" content="plastering calculator, cement sand calculator, wall plaster calculator, plaster labour cost calculator, ceiling plaster calculator">
+<meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="oLRbp0exIiNsVlyNDaDzxBgcRH5KpdTVX0psPuLf41I">
+<meta name="theme-color" content="#166534">
+<link rel="canonical" href="https://toolaxa.com/tools/plastering-calculator.html">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Plastering Calculator | Toolaxa">
+<meta property="og:description" content="Calculate plaster area, cement, sand, labour charges and total plastering cost.">
+<meta property="og:url" content="https://toolaxa.com/tools/plastering-calculator.html">
+<meta property="og:site_name" content="Toolaxa">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Plastering Calculator | Toolaxa">
+<meta name="twitter:description" content="Estimate plastering materials, labour charges and total cost.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Plastering Calculator",
+  "url": "https://toolaxa.com/tools/plastering-calculator.html",
+  "description": "Free online plastering calculator for wall and ceiling area, cement, sand, labour charges and total estimated cost.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  }
+}
+</script>
+
+<style>
+:root {
+  --primary: #166534;
+  --primary-dark: #14532d;
+  --bg: #f5f7fb;
+  --text: #172033;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 5px 20px rgba(15,23,42,.055);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.brand {
+  color: var(--primary);
+  font-size: 23px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.brand span {
+  color: #334155;
+  font-weight: 500;
+}
+
+.home-link {
+  text-decoration: none;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.hero {
+  background: linear-gradient(125deg,#14532d,#15803d);
+  color: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "🪣";
+  position: absolute;
+  right: 35px;
+  top: 20px;
+  font-size: 75px;
+  opacity: .15;
+}
+
+.hero-label {
+  display: inline-block;
+  background: rgba(255,255,255,.15);
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 9px;
+}
+
+.hero h1 {
+  font-size: clamp(25px,4vw,35px);
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #dcfce7;
+  font-size: 14px;
+}
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.hero-points span {
+  font-size: 11px;
+  padding: 5px 10px;
+  background: rgba(255,255,255,.13);
+  border-radius: 20px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1.15fr) minmax(320px,.85fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 17px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.panel-header h2 {
+  font-size: 16px;
+  margin: 0;
+  color: #1e293b;
+}
+
+.panel-header small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.panel-body { padding: 20px; }
+
+.section-title {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 800;
+  margin: 3px 0 13px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #dbe5df;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.form-group { min-width: 0; }
+.form-group.full { grid-column: 1/-1; }
+
+label {
+  display: block;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.field-wrap { position: relative; }
+
+input, select {
+  width: 100%;
+  min-height: 43px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fff;
+  color: #172033;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(22,101,52,.10);
+}
+
+.unit {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 11px;
+  pointer-events: none;
+}
+
+.has-unit { padding-right: 48px; }
+
+.help-text {
+  display: block;
+  color: #94a3b8;
+  font-size: 10px;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+.info-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  border-radius: 9px;
+  padding: 11px 13px;
+  font-size: 11px;
+  margin: 12px 0 18px;
+}
+
+.labour-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.labour-box .section-title {
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+button:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  flex: 1;
+}
+
+.btn-primary:hover { background: var(--primary-dark); }
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.btn-outline {
+  background: #fff;
+  color: var(--primary);
+  border: 1px solid #86b99a;
+}
+
+.results-panel {
+  position: sticky;
+  top: 15px;
+}
+
+.results-top {
+  padding: 20px;
+  background: linear-gradient(135deg,#f0fdf4,#ecfdf5);
+  border-bottom: 1px solid #d1fae5;
+}
+
+.results-top small {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.total-value {
+  color: var(--primary-dark);
+  font-size: 32px;
+  font-weight: 900;
+  margin: 3px 0;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.results-top p {
+  color: #64748b;
+  font-size: 11px;
+  margin: 0;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  padding: 16px;
+}
+
+.metric {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.metric span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.metric strong {
+  display: block;
+  font-size: 18px;
+  color: #1e293b;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.metric small {
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.result-table-wrap {
+  padding: 0 16px 16px;
+  overflow-x: auto;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 310px;
+}
+
+.result-table th, .result-table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.result-table th {
+  color: #64748b;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #f8fafc;
+}
+
+.result-table td:last-child,
+.result-table th:last-child {
+  text-align: right;
+}
+
+.result-table tfoot td {
+  font-weight: 900;
+  color: var(--primary-dark);
+  border-top: 2px solid #cbd5e1;
+}
+
+.result-note {
+  margin: 0 16px 17px;
+  padding: 10px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  font-size: 10px;
+  border-radius: 8px;
+}
+
+.below-section {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 22px;
+  margin-top: 20px;
+}
+
+.below-section h2 {
+  color: #1e293b;
+  font-size: 19px;
+  margin: 0 0 12px;
+}
+
+.below-section h3 {
+  color: #334155;
+  font-size: 14px;
+  margin: 17px 0 6px;
+}
+
+.below-section p, .below-section li {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.below-section ul { padding-left: 20px; }
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.faq-item:last-child { border: 0; }
+
+.faq-item strong {
+  display: block;
+  color: #334155;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.faq-item p { margin: 0; }
+
+.disclaimer {
+  background: #f8fafc;
+  border-left: 4px solid #f59e0b;
+  padding: 13px 15px;
+  margin-top: 18px;
+  border-radius: 5px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 25px 15px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.site-footer a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.error-message {
+  display: none;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 11px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+@media(max-width:850px) {
+  .main-grid { grid-template-columns: 1fr; }
+  .results-panel { position: static; }
+}
+
+@media(max-width:520px) {
+  .container { margin: 18px auto; padding: 0 12px; }
+  .header-inner { padding: 12px; }
+  .brand { font-size: 20px; }
+  .hero { padding: 23px 19px; }
+  .hero::after { right: 15px; top: 13px; font-size: 48px; }
+  .panel-body { padding: 15px; }
+  .panel-header { padding: 14px 15px; }
+  .form-grid { gap: 12px 9px; }
+  input, select { font-size: 13px; }
+  .total-value { font-size: 28px; }
+  .below-section { padding: 17px; }
+}
+
+@media print {
+  body { background: #fff; }
+  .site-header, .hero, .input-panel, .action-row,
+  .below-section, .site-footer, .no-print {
+    display: none !important;
+  }
+
+  .container { max-width: 100%; margin: 0; padding: 0; }
+  .main-grid { display: block; }
+  .results-panel { position: static; box-shadow: none; border: 1px solid #ccc; }
+  .panel { box-shadow: none; }
+  .results-top {
+    background: #f0fdf4 !important;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="brand">Toolaxa<span>.com</span></a>
+    <a href="../index.html" class="home-link">← Back to Home</a>
+  </div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+  <span class="hero-label">FREE CONSTRUCTION CALCULATOR</span>
+  <h1>Plastering Calculator</h1>
+  <p>
+    Calculate internal wall, external wall and ceiling plaster areas.
+    Estimate cement, sand, labour charges and total plastering cost.
+  </p>
+  <div class="hero-points">
+    <span>✓ Wall Plaster</span>
+    <span>✓ Ceiling Plaster</span>
+    <span>✓ Cement & Sand</span>
+    <span>✓ Labour Cost</span>
+    <span>✓ Total Estimate</span>
+  </div>
+</section>
+
+<div class="main-grid">
+
+<section class="panel input-panel">
+<div class="panel-header">
+  <h2>📐 Enter Plastering Details</h2>
+  <small>Dimensions in feet</small>
+</div>
+
+<div class="panel-body">
+
+<div id="errorMessage" class="error-message" role="alert"></div>
+
+<h3 class="section-title">1. Internal Wall Plaster</h3>
+
+<div class="form-grid">
+  <div class="form-group">
+    <label for="internalLength">Total Wall Length</label>
+    <div class="field-wrap">
+      <input type="number" id="internalLength" value="100" min="0" step="any" class="has-unit">
+      <span class="unit">ft</span>
+    </div>
+    <small class="help-text">Combined length of internal walls</small>
+  </div>
+
+  <div class="form-group">
+    <label for="internalHeight">Wall Height</label>
+    <div class="field-wrap">
+      <input type="number" id="internalHeight" value="10" min="0" step="any" class="has-unit">
+      <span class="unit">ft</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="internalSides">Number of Sides</label>
+    <select id="internalSides">
+      <option value="1">One Side</option>
+      <option value="2" selected>Both Sides</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="internalOpenings">Door / Window Opening Area</label>
+    <div class="field-wrap">
+      <input type="number" id="internalOpenings" value="120" min="0" step="any" class="has-unit">
+      <span class="unit">sq.ft</span>
+    </div>
+    <small class="help-text">Combined opening area for selected sides</small>
+  </div>
+</div>
+
+<h3 class="section-title">2. External Wall Plaster</h3>
+
+<div class="form-grid">
+  <div class="form-group">
+    <label for="externalLength">Total Wall Length</label>
+    <div class="field-wrap">
+      <input type="number" id="externalLength" value="160" min="0" step="any" class="has-unit">
+      <span class="unit">ft</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="externalHeight">Wall Height</label>
+    <div class="field-wrap">
+      <input type="number" id="externalHeight" value="10" min="0" step="any" class="has-unit">
+      <span class="unit">ft</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="externalSides">Number of Sides</label>
+    <select id="externalSides">
+      <option value="1" selected>One Side</option>
+      <option value="2">Both Sides</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="externalOpenings">Door / Window Opening Area</label>
+    <div class="field-wrap">
+      <input type="number" id="externalOpenings" value="100" min="0" step="any" class="has-unit">
+      <span class="unit">sq.ft</span>
+    </div>
+    <small class="help-text">Combined opening area for selected sides</small>
+  </div>
+</div>
+
+<h3 class="section-title">3. Ceiling Plaster</h3>
+
+<div class="form-grid">
+  <div class="form-group">
+    <label for="ceilingLength">Total Ceiling Length</label>
+    <div class="field-wrap">
+      <input type="number" id="ceilingLength" value="40" min="0" step="any" class="has-unit">
+      <span class="unit">ft</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ceilingWidth">Total Ceiling Width</label>
+    <div class="field-wrap">
+      <input type="number" id="ceilingWidth" value="30" min="0" step="any" class="has-unit">
+      <span class="unit">ft</span>
+    </div>
+  </div>
+</div>
+
+<h3 class="section-title">4. Plaster Specifications</h3>
+
+<div class="form-grid">
+  <div class="form-group">
+    <label for="wallThickness">Wall Plaster Thickness</label>
+    <select id="wallThickness">
+      <option value="12">12 mm</option>
+      <option value="15" selected>15 mm</option>
+      <option value="18">18 mm</option>
+      <option value="20">20 mm</option>
+      <option value="25">25 mm</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="ceilingThickness">Ceiling Plaster Thickness</label>
+    <select id="ceilingThickness">
+      <option value="6">6 mm</option>
+      <option value="10">10 mm</option>
+      <option value="12" selected>12 mm</option>
+      <option value="15">15 mm</option>
+      <option value="20">20 mm</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="mortarRatio">Cement : Sand Ratio</label>
+    <select id="mortarRatio">
+      <option value="3">1 : 3</option>
+      <option value="4">1 : 4</option>
+      <option value="5" selected>1 : 5</option>
+      <option value="6">1 : 6</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="dryFactor">Dry Volume Factor</label>
+    <input type="number" id="dryFactor" value="1.33" min="1" max="2" step="0.01">
+    <small class="help-text">Default factor: 1.33</small>
+  </div>
+
+  <div class="form-group">
+    <label for="wastage">Material Wastage</label>
+    <div class="field-wrap">
+      <input type="number" id="wastage" value="5" min="0" max="30" step="any" class="has-unit">
+      <span class="unit">%</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cementBagWeight">Cement Bag Weight</label>
+    <select id="cementBagWeight">
+      <option value="50" selected>50 kg</option>
+      <option value="25">25 kg</option>
+    </select>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>Measurement Note:</strong> Enter combined wall lengths.
+  Opening area should be entered as the total area for the selected
+  plastered sides. Ceiling dimensions should represent the combined ceiling area.
+</div>
+
+<h3 class="section-title">5. Material Rates (₹)</h3>
+
+<div class="form-grid">
+  <div class="form-group">
+    <label for="cementRate">Cement Rate / Bag</label>
+    <div class="field-wrap">
+      <input type="number" id="cementRate" value="400" min="0" step="any" class="has-unit">
+      <span class="unit">₹</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="sandRate">Sand Rate / CFT</label>
+    <div class="field-wrap">
+      <input type="number" id="sandRate" value="60" min="0" step="any" class="has-unit">
+      <span class="unit">₹</span>
+    </div>
+  </div>
+</div>
+
+<div class="labour-box">
+  <h3 class="section-title">6. Labour Charges (₹)</h3>
+
+  <div class="form-grid" style="margin-bottom:0">
+    <div class="form-group">
+      <label for="wallLabourRate">Wall Plaster Labour / Sq.ft</label>
+      <div class="field-wrap">
+        <input type="number" id="wallLabourRate" value="25" min="0" step="any" class="has-unit">
+        <span class="unit">₹</span>
+      </div>
+      <small class="help-text">Applied to internal + external wall area</small>
+    </div>
+
+    <div class="form-group">
+      <label for="ceilingLabourRate">Ceiling Plaster Labour / Sq.ft</label>
+      <div class="field-wrap">
+        <input type="number" id="ceilingLabourRate" value="35" min="0" step="any" class="has-unit">
+        <span class="unit">₹</span>
+      </div>
+      <small class="help-text">Applied to total ceiling area</small>
+    </div>
+  </div>
+
+  <small class="help-text">
+    Enter your local contractor's labour rate. Rates are editable and
+    are not fixed market prices.
+  </small>
+</div>
+
+<div class="action-row">
+  <button type="button" class="btn-primary" id="calculateBtn">Calculate Total Cost</button>
+  <button type="button" class="btn-secondary" id="resetBtn">↻ Reset</button>
+</div>
+
+</div>
+</section>
+
+<!-- RESULTS -->
+<section class="panel results-panel" id="resultsPanel">
+
+<div class="panel-header">
+  <h2>📊 Calculation Results</h2>
+  <small id="resultStatus">Ready</small>
+</div>
+
+<div class="results-top">
+  <small>ESTIMATED TOTAL PROJECT COST</small>
+  <div class="total-value" id="totalCost">₹0.00</div>
+  <p>Material cost + labour cost</p>
+</div>
+
+<div class="metric-grid">
+  <div class="metric">
+    <span>Total Plaster Area</span>
+    <strong id="totalArea">0</strong>
+    <small>sq.ft</small>
+  </div>
+
+  <div class="metric">
+    <span>Wet Plaster Volume</span>
+    <strong id="wetVolume">0</strong>
+    <small>m³</small>
+  </div>
+
+  <div class="metric">
+    <span>Cement Required</span>
+    <strong id="cementQty">0</strong>
+    <small id="cementUnit">50 kg bags</small>
+  </div>
+
+  <div class="metric">
+    <span>Sand Required</span>
+    <strong id="sandQty">0</strong>
+    <small>CFT</small>
+  </div>
+
+  <div class="metric">
+    <span>Total Labour Cost</span>
+    <strong id="labourCost">₹0</strong>
+    <small>Wall + ceiling labour</small>
+  </div>
+
+  <div class="metric">
+    <span>Material Cost</span>
+    <strong id="materialCost">₹0</strong>
+    <small>Cement + sand</small>
+  </div>
+</div>
+
+<div class="result-table-wrap">
+<table class="result-table">
+<thead>
+<tr>
+  <th>Particulars</th>
+  <th>Quantity / Rate</th>
+  <th>Amount</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+  <td>Cement</td>
+  <td id="tableCementQty">0 bags</td>
+  <td id="tableCementCost">₹0</td>
+</tr>
+
+<tr>
+  <td>Plaster Sand</td>
+  <td id="tableSandQty">0 CFT</td>
+  <td id="tableSandCost">₹0</td>
+</tr>
+
+<tr>
+  <td>Wall Plaster Labour</td>
+  <td id="tableWallLabourQty">0 sq.ft</td>
+  <td id="tableWallLabourCost">₹0</td>
+</tr>
+
+<tr>
+  <td>Ceiling Plaster Labour</td>
+  <td id="tableCeilingLabourQty">0 sq.ft</td>
+  <td id="tableCeilingLabourCost">₹0</td>
+</tr>
+</tbody>
+
+<tfoot>
+<tr>
+  <td colspan="2">Material Cost</td>
+  <td id="tableMaterialTotal">₹0</td>
+</tr>
+<tr>
+  <td colspan="2">Labour Cost</td>
+  <td id="tableLabourTotal">₹0</td>
+</tr>
+<tr>
+  <td colspan="2">Grand Total</td>
+  <td id="tableTotalCost">₹0</td>
+</tr>
+</tfoot>
+</table>
+</div>
+
+<div class="result-note">
+  <strong>Note:</strong> Labour charges are calculated separately
+  for wall and ceiling plaster based on the rates entered.
+  Other charges such as scaffolding, transport and surface preparation
+  are not included.
+</div>
+
+<div class="panel-body no-print" style="padding-top:0">
+  <div class="action-row">
+    <button type="button" class="btn-outline" id="csvBtn">⬇ Download CSV</button>
+    <button type="button" class="btn-outline" id="printBtn">🖨 Print / Save PDF</button>
+  </div>
+</div>
+
+</section>
+</div>
+
+<section class="below-section">
+<h2>About the Plastering Calculator</h2>
+
+<p>
+The Toolaxa Plastering Calculator helps estimate cement, sand and labour
+requirements for internal wall plaster, external wall plaster and ceiling
+plaster. It also calculates approximate material cost and total labour cost
+using your entered rates.
+</p>
+
+<h3>How to Use This Calculator</h3>
+<ul>
+  <li>Enter internal wall length, height and number of plastered sides.</li>
+  <li>Enter total door and window opening area for internal walls.</li>
+  <li>Enter external wall dimensions and plastered sides.</li>
+  <li>Enter ceiling length and width.</li>
+  <li>Select wall and ceiling plaster thickness.</li>
+  <li>Choose the cement-sand mortar ratio.</li>
+  <li>Enter cement and sand market rates.</li>
+  <li>Enter separate wall and ceiling labour rates per sq.ft.</li>
+  <li>Click Calculate Total Cost to see your complete estimate.</li>
+  <li>Download the calculation as CSV or print/save it as PDF.</li>
+</ul>
+
+<h3>Calculation Method</h3>
+<p>
+Wall plaster area is calculated using wall length × wall height × number
+of plastered sides, minus the specified opening area. Ceiling area is
+calculated using ceiling length × ceiling width.
+</p>
+<p>
+Wet mortar volume is calculated from plaster area and plaster thickness.
+A dry volume factor is applied to estimate dry mortar. Cement and sand
+quantities are calculated using the selected mortar ratio and the entered
+wastage percentage.
+</p>
+<p>
+Wall labour cost is calculated using the combined internal and external
+plaster area multiplied by the wall labour rate. Ceiling labour cost is
+calculated using the ceiling area multiplied by the ceiling labour rate.
+</p>
+
+<h3>Frequently Asked Questions</h3>
+
+<div class="faq-item">
+<strong>1. Does this calculator include labour charges?</strong>
+<p>Yes. It calculates wall and ceiling plaster labour separately using your entered rate per square foot.</p>
+</div>
+
+<div class="faq-item">
+<strong>2. Can I enter different labour rates for wall and ceiling plaster?</strong>
+<p>Yes. Separate labour rates can be entered for wall plaster and ceiling plaster.</p>
+</div>
+
+<div class="faq-item">
+<strong>3. Which plaster thickness should I select?</strong>
+<p>Common wall plaster thicknesses include 12 mm and 15 mm for internal work, while external plaster may use 15 mm or more according to project specifications. Ceiling thickness should also follow the site specification.</p>
+</div>
+
+<div class="faq-item">
+<strong>4. Which cement-sand ratio is supported?</strong>
+<p>The calculator supports 1:3, 1:4, 1:5 and 1:6 ratios. Use the mix ratio specified by your engineer or project.</p>
+</div>
+
+<div class="faq-item">
+<strong>5. Does the total include scaffolding and transport?</strong>
+<p>No. The estimate includes cement, sand and entered wall and ceiling labour charges only. Scaffolding, transport, water, surface preparation and other additional costs are excluded.</p>
+</div>
+
+<div class="faq-item">
+<strong>6. Can I download the estimate?</strong>
+<p>Yes. Download CSV for spreadsheet use or select Print / Save PDF to save a printable report.</p>
+</div>
+
+<div class="disclaimer">
+<strong>Disclaimer:</strong> This calculator provides approximate planning
+estimates, not final construction quantities or engineering specifications.
+Actual consumption and labour costs may vary according to site conditions,
+surface unevenness, workmanship, material quality and local contractor rates.
+Verify quantities and rates before procurement or execution.
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<p>© <span id="currentYear"></span> <a href="../index.html">Toolaxa</a> | Plastering Calculator</p>
+<p>Smart & Simple Online Construction Calculators</p>
+</footer>
+
+<script>
+(function () {
+"use strict";
+
+const $ = id => document.getElementById(id);
+
+const SQFT_TO_SQM = 0.09290304;
+const M3_TO_CFT = 35.3146667;
+const CEMENT_DENSITY = 1440;
+
+let latestCalculation = null;
+
+function num(id) {
+  const element = $(id);
+  if (!element) return 0;
+
+  const value = Number(element.value);
+  return Number.isFinite(value) ? value : 0;
+}
+
+function fmt(value, decimals = 2) {
+  return Number(value || 0).toLocaleString("en-IN", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  });
+}
+
+function money(value) {
+  return "₹" + Number(value || 0).toLocaleString("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
+function showError(message) {
+  const box = $("errorMessage");
+  box.textContent = message;
+  box.style.display = "block";
+  box.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function clearError() {
+  $("errorMessage").textContent = "";
+  $("errorMessage").style.display = "none";
+}
+
+function validate() {
+  const nonNegativeFields = [
+    "internalLength",
+    "internalHeight",
+    "internalOpenings",
+    "externalLength",
+    "externalHeight",
+    "externalOpenings",
+    "ceilingLength",
+    "ceilingWidth",
+    "cementRate",
+    "sandRate",
+    "wallLabourRate",
+    "ceilingLabourRate"
+  ];
+
+  for (const id of nonNegativeFields) {
+    const el = $(id);
+
+    if (!el || el.value.trim() === "") {
+      return "Please fill in all dimensions and rate fields.";
+    }
+
+    const value = Number(el.value);
+
+    if (!Number.isFinite(value) || value < 0) {
+      return "Please enter valid non-negative values in all fields.";
+    }
+  }
+
+  if (num("wallThickness") <= 0 || num("ceilingThickness") <= 0) {
+    return "Plaster thickness must be greater than zero.";
+  }
+
+  if (num("dryFactor") < 1 || num("dryFactor") > 2) {
+    return "Dry volume factor must be between 1 and 2.";
+  }
+
+  if (num("wastage") < 0 || num("wastage") > 30) {
+    return "Wastage must be between 0% and 30%.";
+  }
+
+  const internalGross =
+    num("internalLength") *
+    num("internalHeight") *
+    num("internalSides");
+
+  const externalGross =
+    num("externalLength") *
+    num("externalHeight") *
+    num("externalSides");
+
+  if (num("internalOpenings") > internalGross) {
+    return "Internal opening area cannot exceed gross internal plaster area.";
+  }
+
+  if (num("externalOpenings") > externalGross) {
+    return "External opening area cannot exceed gross external plaster area.";
+  }
+
+  return "";
+}
+
+function calculate() {
+  clearError();
+
+  const error = validate();
+
+  if (error) {
+    showError(error);
+    return;
+  }
+
+  // INTERNAL WALL AREA
+  const internalGross =
+    num("internalLength") *
+    num("internalHeight") *
+    num("internalSides");
+
+  const internalArea = Math.max(
+    0,
+    internalGross - num("internalOpenings")
+  );
+
+  // EXTERNAL WALL AREA
+  const externalGross =
+    num("externalLength") *
+    num("externalHeight") *
+    num("externalSides");
+
+  const externalArea = Math.max(
+    0,
+    externalGross - num("externalOpenings")
+  );
+
+  // CEILING AREA
+  const ceilingArea =
+    num("ceilingLength") *
+    num("ceilingWidth");
+
+  const wallArea = internalArea + externalArea;
+  const totalArea = wallArea + ceilingArea;
+
+  // PLASTER VOLUME
+  const wallThicknessM = num("wallThickness") / 1000;
+  const ceilingThicknessM = num("ceilingThickness") / 1000;
+
+  const internalVolume =
+    internalArea * SQFT_TO_SQM * wallThicknessM;
+
+  const externalVolume =
+    externalArea * SQFT_TO_SQM * wallThicknessM;
+
+  const ceilingVolume =
+    ceilingArea * SQFT_TO_SQM * ceilingThicknessM;
+
+  const wetVolume =
+    internalVolume + externalVolume + ceilingVolume;
+
+  // DRY MORTAR VOLUME
+  const dryFactor = num("dryFactor");
+  const dryVolume = wetVolume * dryFactor;
+
+  // CEMENT AND SAND
+  const sandRatio = num("mortarRatio");
+  const totalRatio = 1 + sandRatio;
+
+  const cementVolume = dryVolume / totalRatio;
+  const sandVolume = dryVolume * sandRatio / totalRatio;
+
+  const cementBagWeight = num("cementBagWeight");
+  const cementKg = cementVolume * CEMENT_DENSITY;
+  const cementBags = cementKg / cementBagWeight;
+
+  const wastageFactor = 1 + num("wastage") / 100;
+
+  const finalCementBags = cementBags * wastageFactor;
+  const finalSandCft =
+    sandVolume * M3_TO_CFT * wastageFactor;
+
+  // MATERIAL COST
+  const cementRate = num("cementRate");
+  const sandRate = num("sandRate");
+
+  const cementCost = finalCementBags * cementRate;
+  const sandCost = finalSandCft * sandRate;
+
+  const materialCost = cementCost + sandCost;
+
+  // LABOUR COST
+  const wallLabourRate = num("wallLabourRate");
+  const ceilingLabourRate = num("ceilingLabourRate");
+
+  const wallLabourCost = wallArea * wallLabourRate;
+  const ceilingLabourCost = ceilingArea * ceilingLabourRate;
+
+  const totalLabourCost = wallLabourCost + ceilingLabourCost;
+
+  // GRAND TOTAL
+  const totalCost = materialCost + totalLabourCost;
+
+  latestCalculation = {
+    internalArea,
+    externalArea,
+    wallArea,
+    ceilingArea,
+    totalArea,
+    internalVolume,
+    externalVolume,
+    ceilingVolume,
+    wetVolume,
+    dryVolume,
+    cementBags: finalCementBags,
+    sandCft: finalSandCft,
+    cementBagWeight,
+    cementRate,
+    sandRate,
+    cementCost,
+    sandCost,
+    materialCost,
+    wallLabourRate,
+    ceilingLabourRate,
+    wallLabourCost,
+    ceilingLabourCost,
+    totalLabourCost,
+    totalCost,
+    wastage: num("wastage"),
+    dryFactor,
+    ratio: "1:" + sandRatio,
+    wallThickness: num("wallThickness"),
+    ceilingThickness: num("ceilingThickness")
+  };
+
+  displayResults(latestCalculation);
+}
+
+function displayResults(r) {
+  $("totalCost").textContent = money(r.totalCost);
+  $("totalArea").textContent = fmt(r.totalArea);
+  $("wetVolume").textContent = fmt(r.wetVolume, 3);
+  $("cementQty").textContent = fmt(r.cementBags);
+  $("cementUnit").textContent = r.cementBagWeight + " kg bags";
+  $("sandQty").textContent = fmt(r.sandCft);
+
+  $("labourCost").textContent = money(r.totalLabourCost);
+  $("materialCost").textContent = money(r.materialCost);
+
+  $("tableCementQty").textContent = fmt(r.cementBags) + " bags";
+  $("tableSandQty").textContent = fmt(r.sandCft) + " CFT";
+
+  $("tableCementCost").textContent = money(r.cementCost);
+  $("tableSandCost").textContent = money(r.sandCost);
+
+  $("tableWallLabourQty").textContent =
+    fmt(r.wallArea) + " sq.ft × ₹" + fmt(r.wallLabourRate);
+
+  $("tableCeilingLabourQty").textContent =
+    fmt(r.ceilingArea) + " sq.ft × ₹" + fmt(r.ceilingLabourRate);
+
+  $("tableWallLabourCost").textContent = money(r.wallLabourCost);
+  $("tableCeilingLabourCost").textContent = money(r.ceilingLabourCost);
+
+  $("tableMaterialTotal").textContent = money(r.materialCost);
+  $("tableLabourTotal").textContent = money(r.totalLabourCost);
+  $("tableTotalCost").textContent = money(r.totalCost);
+
+  $("resultStatus").textContent = "Calculated ✓";
+}
+
+function downloadCSV() {
+  if (!latestCalculation) {
+    showError("Please calculate the estimate before downloading CSV.");
+    return;
+  }
+
+  const r = latestCalculation;
+
+  const rows = [
+    ["TOOLAXA - PLASTERING CALCULATOR"],
+    ["Calculation Date", new Date().toLocaleDateString("en-IN")],
+    [],
+    ["AREA DETAILS"],
+    ["Internal Wall Area (sq.ft)", r.internalArea.toFixed(2)],
+    ["External Wall Area (sq.ft)", r.externalArea.toFixed(2)],
+    ["Combined Wall Area (sq.ft)", r.wallArea.toFixed(2)],
+    ["Ceiling Area (sq.ft)", r.ceilingArea.toFixed(2)],
+    ["Total Plaster Area (sq.ft)", r.totalArea.toFixed(2)],
+    [],
+    ["PLASTER VOLUME"],
+    ["Wet Plaster Volume (m3)", r.wetVolume.toFixed(4)],
+    ["Dry Mortar Volume (m3)", r.dryVolume.toFixed(4)],
+    ["Dry Volume Factor", r.dryFactor],
+    ["Cement-Sand Ratio", r.ratio],
+    ["Wastage (%)", r.wastage],
+    [],
+    ["MATERIAL QUANTITIES AND COST"],
+    ["Cement Quantity (bags)", r.cementBags.toFixed(2)],
+    ["Cement Bag Weight (kg)", r.cementBagWeight],
+    ["Cement Rate (₹/bag)", r.cementRate],
+    ["Cement Cost (₹)", r.cementCost.toFixed(2)],
+    ["Sand Quantity (CFT)", r.sandCft.toFixed(2)],
+    ["Sand Rate (₹/CFT)", r.sandRate],
+    ["Sand Cost (₹)", r.sandCost.toFixed(2)],
+    ["Total Material Cost (₹)", r.materialCost.toFixed(2)],
+    [],
+    ["LABOUR COST DETAILS"],
+    ["Wall Plaster Area (sq.ft)", r.wallArea.toFixed(2)],
+    ["Wall Labour Rate (₹/sq.ft)", r.wallLabourRate],
+    ["Wall Labour Cost (₹)", r.wallLabourCost.toFixed(2)],
+    ["Ceiling Plaster Area (sq.ft)", r.ceilingArea.toFixed(2)],
+    ["Ceiling Labour Rate (₹/sq.ft)", r.ceilingLabourRate],
+    ["Ceiling Labour Cost (₹)", r.ceilingLabourCost.toFixed(2)],
+    ["Total Labour Cost (₹)", r.totalLabourCost.toFixed(2)],
+    [],
+    ["PROJECT COST SUMMARY"],
+    ["Material Cost (₹)", r.materialCost.toFixed(2)],
+    ["Labour Cost (₹)", r.totalLabourCost.toFixed(2)],
+    ["GRAND TOTAL (₹)", r.totalCost.toFixed(2)],
+    [],
+    ["Disclaimer", "Approximate estimate only. Verify actual site requirements."]
+  ];
+
+  const csv = rows.map(row =>
+    row.map(value => {
+      const text = String(value ?? "");
+      return '"' + text.replace(/"/g, '""') + '"';
+    }).join(",")
+  ).join("\r\n");
+
+  const blob = new Blob(["\uFEFF" + csv], {
+    type: "text/csv;charset=utf-8;"
+  });
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "Toolaxa-Plastering-Estimate.csv";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  URL.revokeObjectURL(url);
+}
+
+function resetCalculator() {
+  const defaults = {
+    internalLength: 100,
+    internalHeight: 10,
+    internalSides: 2,
+    internalOpenings: 120,
+    externalLength: 160,
+    externalHeight: 10,
+    externalSides: 1,
+    externalOpenings: 100,
+    ceilingLength: 40,
+    ceilingWidth: 30,
+    wallThickness: 15,
+    ceilingThickness: 12,
+    mortarRatio: 5,
+    dryFactor: 1.33,
+    wastage: 5,
+    cementBagWeight: 50,
+    cementRate: 400,
+    sandRate: 60,
+    wallLabourRate: 25,
+    ceilingLabourRate: 35
+  };
+
+  Object.keys(defaults).forEach(id => {
+    $(id).value = defaults[id];
+  });
+
+  clearError();
+  calculate();
+}
+
+$("calculateBtn").addEventListener("click", calculate);
+$("resetBtn").addEventListener("click", resetCalculator);
+$("csvBtn").addEventListener("click", downloadCSV);
+
+$("printBtn").addEventListener("click", function() {
+  if (!latestCalculation) {
+    showError("Please calculate the estimate before printing.");
+    return;
+  }
+
+  window.print();
+});
+
+$("currentYear").textContent = new Date().getFullYear();
+
+// Initial calculation on page load
+calculate();
+
+})();
+</script>
+
+</body>
+</html>
