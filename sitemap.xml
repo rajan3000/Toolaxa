@@ -216,6 +216,22 @@
         <loc>https://toolaxa.com/tools/home-construction-material-calculator.html</loc> <!--42-->
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://toolaxa.com/tools/house-designer.html</loc> <!--43-->
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://toolaxa.com/tools/english-fluency.html</loc> <!--44-->
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://toolaxa.com/tools/unit-converter.html</loc> <!--45-->
+        <priority>0.8</priority>
+    </url>
     
 
 </urlset>
